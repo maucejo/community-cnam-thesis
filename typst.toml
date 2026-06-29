@@ -6,4 +6,7 @@ authors = ["Mathieu Aucejo"]
 license = "MIT"
 description = "Template for writing theses of Cnam"
 
-[tool.utpm]
+[template]
+path = "template"
+entrypoint = "main.typ"
+thumbnail = "thumbnails/main.png"

@@ -1,0 +1,8 @@
+#include "introduction.typ"
+#include "structure.typ"
+#include "figures.typ"
+#include "equations.typ"
+#include "callouts.typ"
+#include "references.typ"
+#include "annotations.typ"
+#include "conclusion.typ"
