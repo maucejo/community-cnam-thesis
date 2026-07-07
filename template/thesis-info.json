@@ -12,7 +12,7 @@
     }
   ],
 
-  "cosupervisor": [
+  "co-supervisor": [
     {
       "name":"Pierre-Simon Laplace",
       "title": "Professeur de tout",
@@ -27,7 +27,7 @@
   "committee": [
     {
         "name": "Jean-Antoine Chaptal",
-        "position": "Professeur des Unversités, Chaire de Chimie Appliquée, Conservatoire national des arts et métiers, Paris, France",
+        "position": "Professeur des Universités, Chaire de Chimie Appliquée, Conservatoire national des arts et métiers, Paris, France",
         "role": "Président du jury"
     },
     {

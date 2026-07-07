@@ -1,3 +1,3 @@
-#import "../../src/cnam-thesis.typ": *
+#import "@preview/cnam-thesis:0.1.0": *
 
 = Équations

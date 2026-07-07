@@ -30,14 +30,17 @@
     author: "Nom de l'auteur",
     thesis-info: (
         doctoral-school: "Sciences des Métiers de l'Ingénieur",
-        supervisor: supervisor,
+        // supervisor: supervisor,
         laboratory: "Laboratoire de Mécanique des Structures et des Systèmes Couplés",
-        co-supervisor: co-supervisor,
+        // co-supervisor: co-supervisor,
         defense-date: "15 juin 2024",
         discipline: "Sciences de l'ingénieur",
         speciality: "Mécanique",
-        committee: committee,
-        // logo: cnam-logos,
+        // committee: committee,
+        // logo: (image("images/cnam.png", height: 5%), ),
+        // logo: image("images/cnam.png", height: 5%),
+        ..json("thesis-info.json")
+        // ..yaml("thesis-info.yaml")
     ),
     lang: "fr",
     open-right: true

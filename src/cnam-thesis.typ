@@ -1,4 +1,3 @@
-#import "@preview/bookly:4.1.0": *
 #import "cnam-theme.typ": *
 #import "cnam-helper.typ": *
 

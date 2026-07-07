@@ -1,9 +1,9 @@
-#import "@preview/bookly:4.1.0": *
+#import "cnam-deps.typ": *
 
 #let cnam-logo = state("cnam-logo", none)
 
 #let cnam-fonts = (
-    body: ("TeXGyrePagellaX", "Libertinus", "New Computer Modern"),
+    body: ("TeXGyrePagellaX", "Libertinus Serif", "New Computer Modern"),
     math: ("TeX Gyre Pagella Math", "Libertinus Math", "New Computer Modern Math"),
     raw: ("Cascadia Code", "Hack", "DejaVu Sans Mono"),
 )
@@ -28,7 +28,8 @@
 
 #let backcover(resume: none, abstract: none) = context {
   let logo = if cnam-logo.get() != none {
-    cnam-logo.get()
+    let custom-logo = cnam-logo.get()
+    if type(custom-logo) == array { custom-logo } else { (custom-logo,) }
   } else {
     (image("resources/logo/victoire.svg", width: 42.5%), image("resources/logo/cnam.png", width: 5.5cm))
   }

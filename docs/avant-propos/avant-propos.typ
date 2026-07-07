@@ -1,16 +1,15 @@
-#import "../../src/cnam-thesis.typ": *
-#import "@preview/mantys:1.0.2": *
+#import "@preview/cnam-thesis:0.1.0": *
+// #import "@preview/mantys:1.0.2": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 
 #show: chapter-nonum
 
 = Avant-propos
 
-Ce document présente le guide d'utilisation du template Typst pour les thèses du Conservatoire national des arts et métiers (Cnam). Il a été conçu pour aider les doctorants et les étudiants de Master à rédiger leur thèse en utilisant le logiciel  #typst (Typst), qui offre une alternative moderne et efficace à #LaTeX.
+Ce document présente le guide d'utilisation du template Typst pour les thèses du Conservatoire national des arts et métiers (Cnam). Il a été conçu pour aider les doctorants et les étudiants de Master à rédiger leur thèse en utilisant le logiciel Typst, qui offre une alternative moderne et efficace à #LaTeX.
 
 Ce guide exploite l'ensemble des fonctionnalités offertes par le template, et fournit des exemples concrets pour illustrer son utilisation. Il est destiné à aider les doctorants et les étudiants de Master à rédiger leur thèse de manière efficace et professionnelle, en respectant les normes et les exigences du Cnam.
-
-Je tiens à remercier les créateurs de #typst pour leur travail remarquable sur ce logiciel. Un remerciement particulier est également adressé à la communauté Typst, sans laquelle ce template n'aurait pu voir le jour.
+Typst pour leur travail remarquable sur ce logiciel. Un remerciement particulier est également adressé à la communauté Typst, sans laquelle ce template n'aurait pu voir le jour.
 
 Je remercie également mon collègue Éric Bavu pour m'avoir motivé à créer ce template en publiant un template Quarto + #LaTeX pour les thèses du Cnam. Le template Typst s'inspire de son travail. Merci Éric !
 

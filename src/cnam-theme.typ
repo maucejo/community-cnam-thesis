@@ -1,24 +1,36 @@
-#import "@preview/bookly:4.1.0": *
+#import "cnam-deps.typ": *
+#import "cnam-helper.typ": *
 
 #let part-outline = state("part-outline", false)
 
 #let cnam-titlepage(
   thesis-info
 ) = context {
-  set text(font: "TeXGyrePagellaX")
+  set text(font: cnam-fonts.body)
 
   set page(
-    paper: paper-size,
+    paper: states.paper-size.get(),
     header: none,
     footer: none,
     margin: (left: 13mm, right:13mm, top: 15mm, bottom: 5mm),
   )
 
-  if thesis-info.logo != none {
-    place(top, dx: 0.5cm, dy: -1cm, row-img(thesis-info.logo))
+  let img-dy = -0.5cm
+  let position
+  let logo-content = if thesis-info.logo != none {
+    let logo = thesis-info.logo
+    if type(logo) == array {
+      position = top
+      row-img(logo)
+    } else {
+      position = top + right
+      logo
+    }
   } else {
-    place(top + right, dx: 0.5cm, dy: -0.5cm, image("resources/logo/cnam.png", width: 5.25cm))
+    position = top + right
+    image("resources/logo/cnam.png", height: 5%)
   }
+  place(position, dy: img-dy)[#logo-content]
 
   v(1fr)
   align(center)[
@@ -92,7 +104,7 @@
 
   if thesis-info.dedication != none {
      set page(
-      paper: paper-size,
+      paper: states.paper-size.get(),
       header: none,
       footer: none,
       margin: auto
@@ -148,8 +160,30 @@
     ]
   }
 
+  // References
+  show ref: set text(fill: colors.primary)
+
+  // Links
+  show link: it => if type(it.dest) == str {
+    if it.dest.starts-with("https://") or it.dest.starts-with("http://") {
+      set text(fill: colors.primary)
+      underline(stroke: (dash: "dashed"), offset: 2.5pt, it)
+    } else if it.dest.starts-with("mailto:") {
+      set text(fill: colors.primary)
+      underline(
+        stroke: (dash: "dashed"),
+        offset: 2.5pt,
+        it.dest.slice(7)
+      )
+    } else {
+      it
+    }
+  } else {
+    it
+  }
+
   // Lists
-  set list(marker: [#text(fill:colors.primary, size: 1.1em)[#sym.bullet]])
+  set list(marker: ([#text(fill:colors.primary, size: 1em)[#sym.bullet]], [#text(fill:colors.primary, size: 1em)[#sym.triangle.filled.r]], [#text(fill:colors.primary, size: 1.1em)[--]]))
   set enum(numbering: n => text(fill:colors.primary)[#n.])
 
   // Tables
@@ -205,16 +239,29 @@
     if is-chapter-page() { return }
 
     show linebreak: none
+
+    let h1 = text(fill: colors.primary)[#smallcaps[*#hydra(1)*]]
+    let h2 = hydra(2)
     if calc.odd(here().page()) {
-      hydra(2) + h(1fr) + text(fill: colors.primary)[#smallcaps[*#hydra(1)*]]
+      grid(columns: (1fr, 1fr), align: (left, right))[
+        [#h2],
+        [#h1],
+      ]
     } else {
-      text(fill: colors.primary)[#smallcaps[*#hydra(1)*]] + h(1fr) + hydra(2)
+      grid(
+        columns: (1fr,)*2,
+        align: (left, right),
+        [#h1],
+        [#h2],
+      )
     }
     place(dx: 0%, dy: 12%)[#line(length: 100%, stroke: 0.5pt)]
+
+    v(0.5em)
   }
 
   set page(
-    paper: paper-size,
+    paper: states.paper-size.get(),
     header: page-header,
   )
 
@@ -223,7 +270,6 @@
 
 // Part
 #let part-cnam(title) = context {
-  part-outline.update(true)
   set page(
     header: none,
     footer: none,
@@ -241,16 +287,17 @@
     *#title*
   ]
 
+  part-outline.update(true)
   show heading: none
   heading(numbering: none)[
-    #v(1em)
+    #v(0.75em)
     #box[#title]
   ]
+  part-outline.update(false)
 
   if states.open-right.get() {
     pagebreak(weak: true, to:"odd")
   }
-  part-outline.update(false)
 }
 
 #let minitoc-cnam = context {
@@ -281,7 +328,7 @@
       border-color: color,
       body-color: color.lighten(95%),
       thickness: (left: 2pt, rest: 0.5pt),
-      radius: 2pt
+      radius: 5pt
     ),
     align: center,
     breakable: true
