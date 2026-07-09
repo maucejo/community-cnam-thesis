@@ -134,3 +134,27 @@ Pour créer des liens hypertextes, il faut utiliser la commande #cmd("link") de 
 
 #noindent#link("mailto:contact@cnam.fr")
 ]
+
+== Listes
+
+Il existe plusieurs types de listes dans Typst: les listes à puces, les listes numérotées et les listes imbriquées.
+
+#example-box(numbering: false)[
+```typst
+- Premier élément
+- Deuxième élément
+  - Sous-élément 1 (1 tabulation)
+
++ Premier élément
++ Deuxième élément
+  + Premier élément
+```
+][
+- Premier élément
+- Deuxième élément
+  - Sous-élément 1 (1 tabulation)
+
++ Premier élément
++ Deuxième élément
+  + Premier élément
+]
