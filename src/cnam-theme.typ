@@ -184,7 +184,23 @@
 
   // Lists
   set list(marker: ([#text(fill:colors.primary, size: 1em)[#sym.bullet]], [#text(fill:colors.primary, size: 1em)[#sym.triangle.filled.r]], [#text(fill:colors.primary, size: 1.1em)[--]]))
-  set enum(numbering: n => text(fill:colors.primary)[#n.])
+  set enum(
+    numbering: (..n) => {
+      set text(fill: colors.primary)
+      n = n.pos()
+      let level = n.len()
+      if level == 1 {
+        numbering("1.", ..n)
+      } else if level == 2 {
+        numbering("a.", ..n.slice(1))
+      } else {
+        // panic("Enum level not set")
+        numbering("i.", ..n)
+      }
+    },
+    full: true,
+  )
+  show: checklist.with(fill: luma(95%), stroke: colors.primary, radius: .2em)
 
   // Tables
   show table.cell.where(y: 0): set text(weight: "bold")
@@ -243,10 +259,12 @@
     let h1 = text(fill: colors.primary)[#smallcaps[*#hydra(1)*]]
     let h2 = hydra(2)
     if calc.odd(here().page()) {
-      grid(columns: (1fr, 1fr), align: (left, right))[
+      grid(
+        columns: (1fr,)*2,
+        align: (left, right),
         [#h2],
         [#h1],
-      ]
+      )
     } else {
       grid(
         columns: (1fr,)*2,
@@ -328,7 +346,7 @@
       border-color: color,
       body-color: color.lighten(95%),
       thickness: (left: 2pt, rest: 0.5pt),
-      radius: 5pt
+      radius: 2.5pt,
     ),
     align: center,
     breakable: true

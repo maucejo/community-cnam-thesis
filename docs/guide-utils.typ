@@ -8,6 +8,7 @@
 
 #let colors = (
   "default": default-type-color,
+  "default-param": rgb("b50256"),
   "content": rgb("#a6ebe6"),
   "string": rgb("#d1ffe2"),
   "str": rgb("#d1ffe2"),
@@ -29,7 +30,7 @@
   "array": default-type-color,
   "dictionary": default-type-color,
   "dict": default-type-color,
-  "arguments": default-type-color,
+  "arguments": rgb("#4428c1"),
   "selector": default-type-color,
   "module": default-type-color,
   "stroke": default-type-color,
@@ -52,21 +53,62 @@
     border-color: teal,
     body-color: teal.lighten(95%),
     thickness: (left: 2pt, rest: 0.5pt),
-    radius: 5pt
+    radius: 2.55pt
   ),
   align: center,
   breakable: true
 )
 
-#let cmd(body) = [#text(fill: function-name-color, font: cnam-fonts.raw)[\#*#body*()]]
+#let cmd(body) = [#text(size: 0.9em, fill: function-name-color, font: cnam-fonts.raw)[\#*#body*()]]
 
-#let example-box(left, right, lang: true, numbering: true, lang-color: teal, vspace: -0.75em) = grid(
+#let cmd-(body) = [#text(size: 0.9em, fill: function-name-color, font: cnam-fonts.raw)[\#*#body*]]
+
+#let example-box(left, right, lang: true, numbering: true, lang-color: teal, vspace: 0em) = grid(
   columns: (1fr, 1fr),
   column-gutter: 1em,
   align: horizon,
   [#zebraw(
     lang: lang,
     lang-color: lang-color,
-    numbering: numbering, left)],
+    numbering: numbering, left)
+
+  ],
   [#v(vspace) #render-box[#right]],
 )
+
+#let argument(name, default: none, type: none, body) = {
+  block(
+    width: 100%,
+    stroke: 0.5pt + colors.default.darken(25%),
+    radius: 2pt,
+    inset: (top: 6pt, rest: 7pt),
+    above: 1.5em,
+    [
+      #let def = if default != none {[: ]} else {none}
+      #place(top+left, dy: -15.5pt, dx: 5.75pt, box(inset: 5pt, fill:white, text(size: 0.85em, [Paramètre])))
+      #v(5pt)
+      #grid(
+      columns: (1fr, 1fr),
+      column-gutter: 1em,
+      align: (left, right),
+      [
+        #set text(size: 0.85em, font: cnam-fonts.raw)
+        #set smartquote(enabled: false)
+        #text(fill: colors.arguments)[#sym.chevron.l#name#sym.chevron.r]#def#text(fill: colors.default-param, default)
+      ],
+      [#type]
+    )
+    #noindent#body
+    ]
+  )
+}
+
+#let code-box-zebraw(body) = code-box[
+  #show: box.with(inset: (top: -0.5em, bottom: 0.25em, left: -1.25em))
+  #zebraw(
+    lang: false,
+    background-color: false,
+    inset: (top: 0.5em, bottom: 0em, left: 0.5em),
+    body
+  )
+]

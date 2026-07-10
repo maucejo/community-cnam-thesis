@@ -1,4 +1,4 @@
-#import "@preview/bookly:4.1.0": *
+#import "../../src/cnam-thesis.typ": *
 
 // #show: chapter.with(title: "Conclusions et perspectives", toc: false)
 

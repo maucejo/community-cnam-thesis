@@ -1,4 +1,5 @@
 #include "introduction.typ"
+#include "usage-general.typ"
 #include "structure.typ"
 #include "figures.typ"
 #include "equations.typ"

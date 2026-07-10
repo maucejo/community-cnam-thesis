@@ -15,7 +15,9 @@ Pour plus d'information sur Typst, vous pouvez consulter le #link("https://typst
 
 == Structure du guide
 
-Ce guide est organisé en six chapitres thématiques :
+Ce guide est organisé en sept chapitres thématiques :
+
++ *Usage général* -- Instruction générales pour l'utilisation du gabarit `cnam-thesis`.
 
 + *Mise en forme* -- Hiérarchie des titres, numérotation, références croisées, listes, etc.
 
@@ -27,7 +29,7 @@ Ce guide est organisé en six chapitres thématiques :
 
 + *Références et glossaire* -- Bibliographie, formats de fichier, création d'un glossaire, etc.
 
-+ *Annotations* -- Notes de bas de page, notes de marge, commentaires, etc.
++ *Commentaires de relecture* -- Notes de marge, commentaires, etc.
 
 == Présentation de Typst
 
@@ -72,7 +74,6 @@ L'installation de Typst-CLI#footnote[Utilitaire en ligne de commande] est simple
 ]
 
 - Linux : Typst est disponible sur la plupart des gestionnaires de paquets associé aux grandes distributions. Vous pouvez l'installer avec les commandes suivantes dans votre terminal :
-#pagebreak()
 #code-box[
 ```bash
 sudo snap install typst                                    # Snapcraft (Ubuntu)

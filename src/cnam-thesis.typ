@@ -14,6 +14,10 @@
      if cnam-thesis-info.logo != none {
         cnam-logo.update(cnam-thesis-info.logo)
     }
+    cnam-lang.update(lang)
+    note-counter.step()
+
+    set bibliography(style: "./resources/IEEEtran-francais.csl")
 
     bookly(
         title: title,
