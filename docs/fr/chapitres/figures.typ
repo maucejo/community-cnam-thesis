@@ -22,7 +22,7 @@ La syntaxe de base pour insérer une image est la suivante#footnote[Pour plus d'
   ```typst
   #image("cnam.png")
   ```
-][#image("../images/cnam.png")]
+][#image("../../images/cnam.png")]
 
 #pagebreak()
 #info-box[Typst accepte un certain nombre de formats d'image. Les formats actuellement supportés sont les suivants : PNG, JPEG, GIF, SVG, PDF, WEBP et Raw Pixel Data.]
@@ -51,7 +51,7 @@ La Figure @fig:logo-cnam présente le logo officiel du Cnam.
 ```
 ][
   #figure(
-  image("../images/cnam.png"),
+  image("../../images/cnam.png"),
   caption: "Logo officiel du Cnam"
 ) <fig:logo-cnam>
 
@@ -87,8 +87,8 @@ La Figure @fig:subfig présente le logo officiel du Cnam et l'allégorie de la V
 )
 #render-box[
   #subfigure(
-  figure(image("../images/cnam.png"), caption: []),
-  figure(image("../images/victoire.svg", width: 50%), caption: []), <fig:b>,
+  figure(image("../../images/cnam.png"), caption: []),
+  figure(image("../../images/victoire.svg", width: 50%), caption: []), <fig:b>,
   columns: (1fr, 1fr),
   caption: [(a) Logo du Cnam and (b) Estampille de la Victoire],
   label: <fig:subfig>,
