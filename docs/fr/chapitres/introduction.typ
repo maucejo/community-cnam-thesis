@@ -23,7 +23,7 @@ Ce guide est organisé en sept chapitres thématiques :
 
 + *Figures et tableaux* -- Insertion d'images, figures, tableaux, légendes, mise en forme, figures multi-colonnes, etc.
 
-+ *Équations* -- Syntaxe des équations équations encadrées, équations multi-lignes, symboles mathématiques, etc.
++ *Équations et algorithmes* -- Syntaxe des équations équations et insertion d'algorithmes.
 
 + *Boîtes informationnelles* -- Types de boîtes, mise en forme, couleurs, icônes, etc.
 

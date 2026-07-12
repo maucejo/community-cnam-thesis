@@ -1,7 +1,7 @@
 #import "@preview/cnam-thesis:0.1.0": *
-#import "../guide-utils.typ": *
+#import "../../guide-utils.typ": *
 
-= Boîtes informationnelles
+= Boîtes informationnelles <ch:boxes>
 
 Les boîtes informationnelles sont des éléments de mise en forme qui permettent de mettre en avant certaines informations dans un document. Elles sont souvent utilisées pour attirer l'attention du lecteur sur des points importants, des conseils, des avertissements ou des notes supplémentaires.
 

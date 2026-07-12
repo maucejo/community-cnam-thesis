@@ -211,6 +211,33 @@
     ),
   )
 
+  // Algorithmes
+  show figure.where(kind: "algorithm"): it => {
+    set figure.caption(position: top)
+    let algo-caption = if it.caption != none {box(inset: (top: 0.75em, bottom: 0.75em), it.caption)}
+
+    grid(
+      align: left,
+      stroke: (_, y) => (
+        top: if y <= 1 {0.75pt} else {0pt},
+        bottom: 0.75pt
+      ),
+      algo-caption,
+      box(inset: (left: 0.5em, right: 0.5em), it.body),
+    )
+  }
+
+  show figure.caption.where(kind: "algorithm"): it => {
+    let num = counter(figure.where(kind: "algorithm")).display(it.numbering)
+    [
+      #strong(it.supplement + " " + num)
+      #if it.body != [] [
+        #it.separator
+        #it.body
+      ]
+    ]
+  }
+
   // Outline
   set outline.entry(fill: box(width: 1fr, repeat(gap: 0.5em)[.]))
   show outline.entry: it => {

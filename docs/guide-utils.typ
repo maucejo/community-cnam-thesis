@@ -44,7 +44,13 @@
 #let mtype(type) = box(fill: colors.at(type), radius: 0.25em, inset: 0.25em, text(size: 0.8em, font: cnam-fonts.raw, type))
 
 #let render-box = showybox.with(
-  title: align(center, text(fill: black)[*Rendu*]),
+  title: align(center)[
+    #let title = context if cnam-lang.get() == "fr" {
+      "Rendu"
+    } else {
+      "Rendering"
+    }
+    #text(fill: black)[*#title*]],
   title-style:(
     sep-thickness: 0pt,
   ),
@@ -76,7 +82,7 @@
   [#v(vspace) #render-box[#right]],
 )
 
-#let argument(name, default: none, type: none, body) = {
+#let argument(name, default: none, type: none, body) = context {
   block(
     width: 100%,
     stroke: 0.5pt + colors.default.darken(25%),
@@ -84,8 +90,9 @@
     inset: (top: 6pt, rest: 7pt),
     above: 1.5em,
     [
+      #let arg-name = if cnam-lang.get() == "fr" {"Paramètre"} else {"Argument"}
       #let def = if default != none {[: ]} else {none}
-      #place(top+left, dy: -15.5pt, dx: 5.75pt, box(inset: 5pt, fill:white, text(size: 0.85em, [Paramètre])))
+      #place(top+left, dy: -15.5pt, dx: 5.75pt, box(inset: 5pt, fill:white, text(size: 0.85em, arg-name)))
       #v(5pt)
       #grid(
       columns: (1fr, 1fr),

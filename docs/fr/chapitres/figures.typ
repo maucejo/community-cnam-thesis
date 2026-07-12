@@ -1,13 +1,14 @@
 #import "@preview/cnam-thesis:0.1.0": *
-#import "../guide-utils.typ": *
+#import "../../guide-utils.typ": *
 #import "@preview/lilaq:0.6.0" as lq
 
-= Figures et tableaux
+= Figures et tableaux <ch:figures>
 
 Ce chapitre présente les différentes commandes et environnements disponibles pour insérer des figures et des tableaux dans le document.
 
 #minitoc
 
+#pagebreak()
 == Figures
 
 
@@ -24,7 +25,6 @@ La syntaxe de base pour insérer une image est la suivante#footnote[Pour plus d'
   ```
 ][#image("../../images/cnam.png")]
 
-#pagebreak()
 #info-box[Typst accepte un certain nombre de formats d'image. Les formats actuellement supportés sont les suivants : PNG, JPEG, GIF, SVG, PDF, WEBP et Raw Pixel Data.]
 
 Cependant, lors de la rédaction d'un texte scientifique, il est souvent nécessaire d'ajouter une légende à l'image et de la référencer dans le texte. Pour cela, il est recommandé d'utiliser l'environnement #cmd("figure") de Typst. La syntaxe est la suivante#footnote[Pour plus d'informations sur l'environnement #cmd("figure"), voir #link("https://typst.app/docs/reference/model/figure/", "Documentation Typst")]:
@@ -71,7 +71,7 @@ On peut également insérer plusieurs images dans une seule figure en utilisant 
 ```
 ]
 
-#pagebreak()
+#v(1em)
 #zebraw(numbering: false, lang-color: teal,
 ```typst
 #subfigure(
@@ -100,6 +100,8 @@ La Figure @fig:subfig présente le logo officiel du Cnam et l'allégorie de la V
 == Tableaux
 
 Les tableaux peuvent être insérés dans le document en utilisant l'environnement #cmd("table") de Typst. La syntaxe est la suivante#footnote[Pour plus d'informations sur l'environnement #cmd("table"), voir #link("https://typst.app/docs/reference/model/table/", "Documentation Typst")]:
+
+#pagebreak()
 #code-box[
 ```typst
 #table(
@@ -153,6 +155,7 @@ Comme pour les figures, il est possible d'ajouter une légende et un label à un
 ```
 ]
 
+#v(1em)
 #example-box(numbering: false)[
 ```typ
 #let mon-tableau = table(
@@ -195,8 +198,7 @@ Le Tableau @tab:perimetres présente les formules de calcul des périmètres d'u
 
 Le template `cnam-thesis` permet de définir un titre long et un titre court pour les figures et les tableaux via la fonction #cmd("ls-caption"). Le titre long est utilisé dans la légende de la figure ou du tableau, tandis que le titre court est utilisé dans la liste des figures ou des tableaux.
 
-#pagebreak()
-#v(1em)
+#v(1.5em)
 #example-box(numbering: false,vspace: -1.5em)[
 ```typst
 #figure(
@@ -288,6 +290,7 @@ La Figure @fig:free-response présente la réponse libre d'un système mécaniqu
 ```
 )
 
+#pagebreak()
 #render-box[
 #let free_response(om0, xi, x0, v0, t) = {
   if xi < 1. {

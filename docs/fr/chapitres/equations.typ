@@ -1,15 +1,16 @@
 #import "@preview/cnam-thesis:0.1.0": *
 #import "@preview/swank-tex:0.1.0": LaTeX
-#import "../guide-utils.typ": *
+#import "../../guide-utils.typ": *
 
-= Équations
+= Équations et algorithmes <ch:equations>
 
-Ce chapitre présente les différentes manières d'écrire des équations dans un document de thèse.
+Ce chapitre présente les différentes manières d'écrire des équations et d'insérer des algorithmes dans un document de thèse.
 
 #minitoc
 
 #pagebreak()
 
+== Équations
 #warning-box[
 #set par(first-line-indent: 0pt)
 La syntaxe des équations Typst diffère de celle de #LaTeX. Pour plus d'informations sur la syntaxe des équations Typst, veuillez consulter la #link("https://typst.app/docs/reference/math/", "documentation officielle de Typst").
@@ -19,7 +20,7 @@ Pour la liste complète des emojis (et oui, c'est possible #emoji.cat.face.heart
 
 ]
 
-== Équations en ligne
+=== Équations en ligne
 
 Les équations en ligne s'écrivent entre les symboles `$...$` et sont intégrées dans le texte.
 
@@ -35,7 +36,7 @@ La transformée de Fourier d'une fonction $f(t)$ est définie par l'intégrale $
 La transformée de Fourier d'une fonction $f(t)$ est définie par l'intégrale $hat(f)(xi) = integral_(-oo)^(+oo) f(t) st e^(-2 pi i xi t) dif t$
 ]
 
-== Équations numérotées et non numérotées
+=== Équations numérotées et non numérotées
 
 Les équations numérotées s'écrivent entre les symboles `$ ... $` et sont centrées sur la page. Comme pour les figures et les tableaux, on peut ajouter un #mtype("label") pour pouvoir y faire référence dans le texte.
 
@@ -86,7 +87,7 @@ $ <nonum-eq>
 ]
 
 
-== Environnements avancés
+=== Environnements avancés
 
 Les équations peuvent également être écrites dans des environnements plus complexes, tels que les systèmes d'équation. Par exemple, pour écrrire des équations sur plusieurs lignes, on peut écrire:
 
@@ -190,4 +191,79 @@ $
 $
   colred(y) = colblue(f)(x)
 $
+]
+
+== Algorithmes
+
+Les algorithmes peuvent être insérés dans le document de thèse en utilisant la #cmd("algorithm") qui est basée sur le package #link("https://github.com/andreasKroepelin/lovelace", [`lovelace`]). Cette commande accepte les paramètres suivants :
+
+#argument("caption", default: "none", type: [#mtype("string")|#mtype("content")])[
+  Légende de l'algorithme. Si #mtype("none"), aucune légende ne sera affichée.
+]
+
+#argument("line-numbering", default: ["1"], type: mtype("string"))[
+  Numérotation des lignes de l'algorithme.
+
+  Si #mtype("none"), aucune numérotation ne sera affichée.
+]
+
+#pagebreak()
+#example-box(numbering: false)[
+```typ
+#algorithm(caption: [Mon algorithme])[
+  + do something
+  + *while* still something to do
+    + do even more
+    + *if* not done yet *then*
+      + wait a bit
+      + resume working
+    + *else*
+      + go home
+    + *end*
+  + *end*
+] <alg:example>
+
+#noindent L'algorithme @alg:example est un exemple d'algorithme simple complètement inutile.
+]
+```
+][#algorithm(caption: "Mon algorithme")[
+  + do something
+  + *while* still something to do
+    + do even more
+    + *if* not done yet *then*
+      + wait a bit
+      + resume working
+    + *else*
+      + go home
+    + *end*
+  + *end*
+] <alg:example>
+
+#noindent L'algorithme @alg:example est un exemple d'algorithme simple complètement inutile.
+]
+
+#algorithm[
+  + do something
+  + *while* still something to do
+    + do even more
+    + *if* not done yet *then*
+      + wait a bit
+      + resume working
+    + *else*
+      + go home
+    + *end*
+  + *end*
+]
+
+#algorithm(caption: lorem(20))[
+  + do something
+  + *while* still something to do
+    + do even more
+    + *if* not done yet *then*
+      + wait a bit
+      + resume working
+    + *else*
+      + go home
+    + *end*
+  + *end*
 ]

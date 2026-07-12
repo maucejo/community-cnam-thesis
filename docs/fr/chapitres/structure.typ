@@ -1,5 +1,5 @@
 #import "@preview/cnam-thesis:0.1.0": *
-#import "../guide-utils.typ": *
+#import "../../guide-utils.typ": *
 
 = Mise en forme du document <ch:structure>
 
@@ -190,7 +190,7 @@ Début du contenu de la section suivante.
 
 #warning-box[Il est recommandé d'utiliser les sauts de page avec parcimonie, afin de ne pas perturber la lecture du document. Il est préférable de laisser le moteur de mise en page gérer les sauts de page automatiquement. Préférez les ajuster en toute fin de rédaction, une fois le contenu figé.]
 
-=== Création de parties
+== Parties et environnements de mise en page
 
 Les parties sont des sections de niveau supérieur aux chapitres. Elles permettent de regrouper plusieurs chapitres sous un même thème. Pour créer une partie, il faut utiliser la commande #cmd("part").
 
@@ -201,7 +201,24 @@ Les parties sont des sections de niveau supérieur aux chapitres. Elles permette
 ```
 ]
 
-=== Quatrième de couverture
+Concernant les environnements de mise en page, `cnam-thesis` s'appuie sur le template `bookly` pour structurer le document. Il est possible d'utiliser les environnements #cmd-("front-matter"), #cmd-("main-matter") et #cmd-("appendix") pour structurer le document en trois parties : la partie avant-propos, la partie principale et la partie annexes.
+
+Pour activer ces environnements, il faut utiliser les commandes suivantes à l'endroit souhaité dans le document :
+#code-box[```typst
+#show: front-matter
+
+// Contenu de la partie avant-propos
+
+#show: main-matter
+
+// Contenu de la partie principale
+
+#show: appendix
+
+// Contenu de la partie annexes
+```]
+
+== Quatrième de couverture
 
 La quatrième de couverture est une page qui présente le résumé et l'abstract du document. Elle est généralement utilisée pour donner un aperçu du contenu du document aux lecteurs.
 

@@ -1,7 +1,7 @@
 #import "@preview/cnam-thesis:0.1.0": *
-#import "../guide-utils.typ": *
+#import "../../guide-utils.typ": *
 
-= Références
+= Références <ch:ref>
 
 Ce chapitre présente le système de citations bibliographiques utilisé dans le template de thèse du Cnam. Il est basé sur le style de citation IEEEtran, adapté pour le français. Le fichier de style utilisé est `IEEEtran-francais.csl`, qui est inclus dans le gabarit `cnam-thesis`. Le système de glossaire et d'acronyme est également présenté.
 

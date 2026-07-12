@@ -20,7 +20,7 @@
 )
 
 #show: cnam-thesis.with(
-    title: [Guide d'utilisation du gabarit \ Typst pour les thèses du Cnam],
+    title: [Cnam thesis template \ User's guide],
     author: "Mathieu Aucejo",
     thesis-info: (
         doctoral-school: "Sciences des Métiers de l'Ingénieur",
@@ -31,9 +31,9 @@
         discipline: "Sciences de l'ingénieur",
         speciality: "Mécanique",
         committee: committee,
-        dedication: [Les logiciels et les cathédrales, c’est un peu la même chose, d’abord on les construit, ensuite on prie. \ Sam Redwine],
+        dedication: [Software and cathedrals are almost the same thing: first we build them, then we pray. \ Sam Redwine],
     ),
-    lang: "fr",
+    lang: "en",
     open-right: true
 )
 
@@ -48,7 +48,7 @@
 #listoftables
 #listofnotes
 
-#part[Guide d'utilisation]
+#part[User's guide]
 
 #include "chapitres/chapitre-main.typ"
 
@@ -56,7 +56,7 @@
 
 #show: appendix
 
-#part[Annexes]
+#part[Appendices]
 #include "annexes/annexes-main.typ"
 
 #let resume = [Ce guide a pour objectif de présenter le template de thèse du Cnam, développé avec le langage de mise en page Typst. Il est destiné à aider les doctorants et les chercheurs à rédiger leur thèse conformément aux normes du Cnam, en utilisant un formatage cohérent et professionnel. Le guide couvre l'installation du template, la structure des fichiers, l'insertion de contenu, la gestion des références bibliographiques, et la personnalisation du document.]

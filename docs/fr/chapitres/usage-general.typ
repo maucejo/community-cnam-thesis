@@ -1,9 +1,9 @@
 #import "@preview/cnam-thesis:0.1.0": *
 #import "@preview/mantys:1.0.2": *
 #import "@preview/dtree:0.1.1": dtree
-#import "../guide-utils.typ": *
+#import "../../guide-utils.typ": *
 
-= Usage général
+= Usage général <ch:usage-general>
 
 Ce chapitre présente les instructions générales pour l'utilisation du gabarit `cnam-thesis`. Il est recommandé de suivre ces instructions avant de commencer la rédaction de votre manuscrit.
 
@@ -16,6 +16,25 @@ Ce chapitre présente les instructions générales pour l'utilisation du gabarit
 Le gabarit `cnam-thesis` est basé sur `bookly`, qui est paquet Typst développé par l'auteur de ce document. Il fournit une structure de document cohérente, des styles de mise en page prédéfinis et des fonctionnalités spécifiques aux documents académiques.
 
 Le présent gabarit personnalise le gabarit `bookly` pour répondre aux besoins spécifiques des thèses du Conservatoire national des arts et métiers (Cnam). Il inclut d'autres fonctionnalités qui seront détaillées dans les chapitres suivants.
+
+=== Polices de caractères
+
+Pour utiliser le gabarit `cnam-thesis`, il est nécessaire d'installer les polices de caractères suivantes sur votre système :
+
+- Texte : `TeXGyrePagellaX` (#link("https://www.ctan.org/tex-archive/fonts/newpx/", "lien de téléchargement")), `Libertinus Serif` (#link("https://ctan.org/pkg/libertinus-fonts?lang=en", "lien de téléchargement")) et `New Computer Modern` (inclus avec Typst).
+
+- Mathématiques : `TeX Gyre Pagella Math` (#link("https://ctan.org/tex-archive/fonts/tex-gyre-math", "lien de téléchargement")), `Libertinus Math` (#link("https://ctan.org/pkg/libertinus-fonts?lang=en", "lien de téléchargement")) et `New Computer Modern Math` (inclus avec Typst).
+
+- Code : `Cascadia Code` (#link("https://fonts.google.com/specimen/Cascadia+Code", "lien de téléchargement")), `Hack` (#link("https://github.com/source-foundry/Hack/tree/master/build/ttf", "lien de téléchargement")) et `DejaVu Sans Mono` (inclus avec Typst).
+
+=== Couleurs du thème
+
+Le gabarit `cnam-thesis` définit deux couleurs principales pour assurer une cohérence visuelle dans l'ensemble du document :
+
+- Couleur primaire #box(width: 1em, height: 1em, fill: cnam-colors.primary)
+- Couleur secondaire : #box(width: 1em, height: 1em, fill: cnam-colors.secondary)
+
+#info-box[Les couleurs sont définies dans le #mtype("dictionary") `cnam-colors`. Vous pouvez y accéder en utilisant la syntaxe classique de Typst : `cnam-colors.primary` et `cnam-colors.secondary`.]
 
 == Initialisation du gabarit
 
@@ -43,11 +62,11 @@ Après avoir importé le modèle, celui doit être initialisé en appliquant une
 Cette fonction d'initialisation contient un certain nombre d'arguments qui sont détaillés ci-dessous. Il est possible de modifier ces arguments en fonction de vos besoins.
 
 #argument("title", default: ["Nom de la thèse"], type: [#mtype("string")|#mtype("content")])[Titre de la thèse]
+
 #argument("author", default: ["Nom de l'auteur"], type: [#mtype("string")|#mtype("content")])[Auteur de la thèse]
 
-#pagebreak()
 #argument("lang", default: ["fr"], type: mtype("string"))[
-  Langue du document
+  Langue du document.
 
   #text(size: 0.85em, info-box[Toutes les langues supportées par `bookly` sont supportées par le gabarit `cnam-thesis`.])
 ]
@@ -105,6 +124,7 @@ Cette fonction d'initialisation contient un certain nombre d'arguments qui sont 
 
 Pour définir les dictionnaires `supervisor`, `co-supervisor` et `committee`, plusieurs approches sont possibles :
 
+#pagebreak()
 + Définition directe en Typst.
 #code-box[
 ```typ
@@ -145,7 +165,6 @@ Pour définir les dictionnaires `supervisor`, `co-supervisor` et `committee`, pl
 #v(1em)
 ```typ
 // main.typ
-
 #show: cnam-thesis.with(
     thesis-info: json("/chemin/vers/thesis-info.json"),
 )

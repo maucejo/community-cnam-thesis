@@ -30,6 +30,7 @@
     logo: none
 )
 
+// Back cover with abstract and resume
 #let backcover(resume: none, abstract: none) = context {
   let logo = if cnam-logo.get() != none {
     let custom-logo = cnam-logo.get()
@@ -53,10 +54,34 @@
   )
 }
 
-#let activate-comment = marginalia.setup.with(
-  inner: (far: 1.25cm, width: 0cm, sep: 0cm),
-  outer: (far: 1.25cm, width: 4cm, sep: 0.5cm),
-)
+// Algorithm
+#let algorithm(caption: none, line-numbering: "1", body) = {
+  let algo-body = pseudocode-list(line-numbering: line-numbering)[#body]
+
+  let algo-num = n => {
+    let h1 = counter(heading).get().first()
+    numbering(states.num-pattern-fig.get(), h1, n)
+  }
+
+  figure(
+    kind: "algorithm",
+    supplement: context if cnam-lang.get() == "fr" {
+      "Algorithme"
+    } else {
+      "Algorithm"
+    },
+    caption: caption,
+    numbering: if caption != none {
+      algo-num
+    } else {
+      none
+    },
+    algo-body,
+  )
+}
+
+// Annotation system
+#let activate-comment = page.with(margin: (left: 1.25cm, right: 6cm))
 
 #let deactivate-comment = page.with(margin: auto)
 
@@ -78,13 +103,13 @@
   return image(bytes(data), ..args)
 }
 
-#let comment(by: "Reviewer", type: "note", inline: false, color: none, ..args, body) = context {
+#let comment(by: "Reviewer", type: "note", inline: false, color: blue, ..args, body) = context {
   set text(size: 0.8em)
   // Update the note counter
   note-counter.step()
 
   // Creation of the note content
-  let note-cnt = note-counter.display()
+  let note-cnt = text(fill: color)[*#note-counter.display()*]
   let note-text = [#text(fill: color)[*#note-cnt #by :*] #body]
   let img = if type != none {
     cnam-color-svg("resources/logo/" + type + ".svg", color, width: 1em)
@@ -98,16 +123,13 @@
       align: left + horizon,
       column-gutter: 2.5pt,
       img,
-      text(fill: color)[*#note-cnt *]
+      note-cnt
     )
     #v(-0.75em)
     #text(fill: color)[*#by :*] #body
   ]
 
-  let default-rect = rect.with(
-    radius: 0.5em,
-    inset: 0.5em,
-  )
+  let default-rect = rect.with(radius: 0.5em, inset: 0.5em, stroke: 0.5pt + color)
 
   let note = if inline {
     inline-note
@@ -115,11 +137,20 @@
     margin-note
   }
 
-  [
-    #note-img.update(imgs => imgs + (img,))
-    #note-content.update(content => content + (note-text,))
-    #note(rect: default-rect, stroke: 0.5pt + color, fill: color.lighten(85%), ..args)[#current-note-content]
-  ]
+    note-img.update(imgs => imgs + (img,))
+    note-content.update(content => content + (note-text,))
+    [
+      // #if not inline [#box(img) #super(note-cnt)]
+      #box(img) #super(note-cnt)
+      #note(rect: default-rect, stroke: none, fill: color.lighten(85%), ..args)[#box(width: 100%, current-note-content)]
+    ]
+}
+
+#let highlight-comment(by: "Reviewer", type: "note", color: blue, ..args, highlight-body, body) = context {
+
+  highlight(fill: color.lighten(85%), radius: 0.5em, extent: 0.25em)[#highlight-body]
+  h(0.25em)
+  comment(by: by, type: type, inline: false, color: color, ..args)[#body]
 }
 
 #let listofnotes = context {
@@ -128,7 +159,7 @@
   } else {
     "Review comments"
   }
-  heading(title, numbering: none)
+  heading(title, numbering: none, outlined: false)
   let final-note-img = note-img.final()
   let final-note-content = note-content.final()
 
