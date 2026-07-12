@@ -241,29 +241,3 @@ Les algorithmes peuvent être insérés dans le document de thèse en utilisant 
 
 #noindent L'algorithme @alg:example est un exemple d'algorithme simple complètement inutile.
 ]
-
-#algorithm[
-  + do something
-  + *while* still something to do
-    + do even more
-    + *if* not done yet *then*
-      + wait a bit
-      + resume working
-    + *else*
-      + go home
-    + *end*
-  + *end*
-]
-
-#algorithm(caption: lorem(20))[
-  + do something
-  + *while* still something to do
-    + do even more
-    + *if* not done yet *then*
-      + wait a bit
-      + resume working
-    + *else*
-      + go home
-    + *end*
-  + *end*
-]
