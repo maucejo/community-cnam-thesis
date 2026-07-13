@@ -26,9 +26,9 @@ Pour désactiver les commentaires, il suffit d'insérer dans le fichier concern�
 
 L'activation des commentaires créée une zone de marge sur le côté droit du document, où les commentaires peuvent être affichés.
 
-#info-box[La commande `activate-comment` est un raccourci pour `marginalia.setup.with(...)`, tandis que la commande `deactivate-comment` est un raccourci pour `page.with(margin: auto)`.
+#info-box[#noindent La commande `activate-comment` est un raccourci pour `marginalia.setup.with(...)`, tandis que la commande `deactivate-comment` est un raccourci pour `page.with(margin: auto)`.
 
-Si la commande d'activation est définie dans un fichier inclus, il n'est pas nécessaire de désactiver les commentaires dans les fichiers inclus suivants.
+#noindent Si la commande d'activation est définie dans un fichier inclus, il n'est pas nécessaire de désactiver les commentaires dans les fichiers inclus suivants.
 ]
 
 == Types de commentaires <ch:review->
@@ -62,7 +62,7 @@ Les annotations peuvent être ajoutées en utilisant la commande #cmd("comment")
 #argument("..args", type: mtype("dictionary"))[Arguments supplémentaires pour la personnalisation des annotations.
 
 #set text(size: 0.8em)
-#info-box[La commande #cmd("comment") est construite à partir des commandes #cmd("margin-note") et #cmd("inline-note") du paquet `drafting`. Par conséquent, #cmd("comment") hérite des paramètres de ces deux commandes. Pour plus d'informations sur les paramètres disponibles, veuillez consulter la #link("https://github.com/ntjess/typst-drafting/blob/main/docs/manual.pdf", [documentation du paquet `drafting`.])]
+#info-box[La commande #cmd("comment") est construite à partir de la commande #cmd("note") fournie par le package `marginalia`, tandis qu'elle utilise la commande native #cmd("block") pour les notes en ligne. Par conséquent, #cmd("comment") hérite des paramètres de ces deux commandes. Pour plus d'informations sur les paramètres disponibles, veuillez consulter la #link("https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf", [documentation du package `marginalia`.])]
 
 #warning-box[En raison de l'implémentation actuelle de la commande #cmd("comment"), certains paramètres de la commande #cmd("inline-note") ne sont pas encore pris en charge. C'est notamment le cas du paramètre `par-break`.]
 ]

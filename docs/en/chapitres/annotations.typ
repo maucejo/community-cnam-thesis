@@ -26,8 +26,7 @@ To disable comments, simply insert the following command in the relevant file:
 
 Enabling comments creates a margin area on the right side of the document, where comments can be displayed.
 
-#info-box[The `activate-comment` and `deactivate-comment` commands are a shortcut for `page.with(...)`. If the activation command is defined in an included file, it is not necessary to disable comments in subsequent included files.
-]
+#info-box[The `activate-comment` is a shortcut for `marginalia.setup.with(...)`, and the `deactivate-comment` command is a shortcut for `page.with(...)`. If the activation command is defined in an included file, it is not necessary to disable comments in subsequent included files.]
 
 == Comment types <ch:review->
 
@@ -57,17 +56,18 @@ Annotations can be added using the #cmd("comment") command, whose arguments are 
 
 #argument("color", default: [blue], type: [#mtype("string")|#mtype("color")])[Annotation box color]
 
+#argument("icon", default: [true], type: mtype("bool"))[Display the comment icon for inline comments. If `true`, the comment icon is displayed in the margin. If `false`, it is not displayed.]
+
 #argument("..args", type: mtype("dictionary"))[Additional arguments for annotation customization.
 
 #set text(size: 0.8em)
-#info-box[The #cmd("comment") command is built from the #cmd("margin-note") and #cmd("inline-note") commands from the `drafting` package. Therefore, #cmd("comment") inherits the parameters of these two commands. For more information about available parameters, please refer to the #link("https://github.com/ntjess/typst-drafting/blob/main/docs/manual.pdf", [`drafting` package documentation.])]
+#info-box[The #cmd("comment") command is built from the #cmd("note") command provided by the `marginalia` package for margin notes, while it uses the built-in #cmd("block") command for inline notes. Therefore, #cmd("comment") inherits the parameters of these two commands. For more information about available parameters, please refer to the #link("https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf", [`marginalia` package documentation.])]
 
 #warning-box[Due to the current implementation of the #cmd("comment") command, some parameters of the #cmd("inline-note") command are not yet supported. This is notably the case for the `par-break` parameter.]
 ]
 
 To add a margin comment of type `note` with a blue annotation box, use the following command:
 
-#pagebreak()
 #code-box[```typ
 #comment(by: "Abbé Grégoire", color: blue)[This is a blue comment.]
 ```]
@@ -110,7 +110,7 @@ In the next section, #ma-highlight-comment(type: "question", dy: - 3.5em)[we wil
 
 #info-box[The #cmd("highlight-comment") command is built from the #cmd("comment") command. It inherits this command’s parameters except for the `inline` parameter.]
 
-== Annotation table
+== Table of annotations
 
 To make reading and navigating comments easier, the `cnam-thesis` template also provides an annotation table. This table lists all comments added to the document, with their number, author, and type. To insert it in the document, simply use the #cmd-("listofnotes") command at the desired location.
 

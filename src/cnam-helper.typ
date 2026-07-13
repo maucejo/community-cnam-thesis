@@ -5,6 +5,7 @@
 #let note-counter = counter("note-counter")
 #let note-img = state("note-img", ())
 #let note-content = state("note-content", ())
+#let note-location = state("note-location", ())
 #let review-note = counter("review-note")
 #let review-comment = counter("review-comment")
 #let review-question = counter("review-question")
@@ -85,7 +86,11 @@
 }
 
 // Annotation system
-#let activate-comment = page.with(margin: (left: 1.25cm, right: 6cm))
+// #let activate-comment = page.with(margin: (left: 1.25cm, right: 6cm))
+#let activate-comment = marginalia.setup.with(
+  inner: (far: 1.25cm, width: 0cm, sep: 0cm),
+  outer: (far: 0.5cm, width: 5.5cm, sep: 0.5cm)
+)
 
 #let deactivate-comment = page.with(margin: auto)
 
@@ -107,10 +112,11 @@
   return image(bytes(data), ..args)
 }
 
-#let comment(by: "Reviewer", type: "note", inline: false, color: blue, ..args, body) = context {
+#let comment(by: "Reviewer", type: "note", inline: false, color: blue, icon: true, ..args, body) = context {
   set text(size: 0.8em)
   // Update the note counter
   note-counter.step()
+  let current-note-location = here()
 
   if type.contains("note") {
     review-note.step()
@@ -140,26 +146,27 @@
       note-cnt
     )
     #v(-0.75em)
-    #text(fill: color)[*#by :*] #body
+    #text(fill: color)[*#by :* #body]
   ]
 
-  let default-rect = rect.with(radius: 0.5em, inset: 0.5em, stroke: 0.5pt + color)
-
-  let note = if inline {
-    inline-note
+  // Define the note
+  let block-style = (fill: color.lighten(85%), radius: 0.5em, inset: 0.5em, width: 100%)
+  let cnam-note = if inline {
+    block.with(..block-style)
   } else {
-    margin-note
+    marginalia.note.with(counter: none, block-style: block-style)
   }
 
-    note-img.update(imgs => imgs + (img,))
-    note-content.update(content => content + (note-text,))
-    [
-      // #if not inline [#box(img) #super(note-cnt)]
-      #box(img) #super(note-cnt)
-      #note(rect: default-rect, stroke: none, fill: color.lighten(85%), ..args)[#box(width: 100%, current-note-content)]
-    ]
+  note-location.update(locations => locations + (current-note-location,))
+  note-img.update(imgs => imgs + (img,))
+  note-content.update(content => content + (note-text,))
+  [
+    #if icon or not inline [#box(img) #super(note-cnt)]
+    #cnam-note(..args)[#current-note-content <cnam-note>]
+  ]
 }
 
+// Highlighted comment
 #let highlight-comment(by: "Reviewer", type: "note", color: blue, ..args, highlight-body, body) = context {
 
   highlight(fill: color.lighten(85%), radius: 0.5em, extent: 0.25em)[#highlight-body]
@@ -167,6 +174,7 @@
   comment(by: by, type: type, inline: false, color: color, ..args)[#body]
 }
 
+// List of review comments
 #let listofnotes = context {
   let title = if cnam-lang.get() == "fr" {
     "Commentaires de relecture"
@@ -176,20 +184,22 @@
   heading(title, numbering: none, outlined: false)
   let final-note-img = note-img.final()
   let final-note-content = note-content.final()
+  let final-note-location = note-location.final()
 
-  let notes = query(selector(<margin-note>).or(<inline-note>)).enumerate().map(((index, note)) => {
+  let notes = query(selector(<cnam-note>)).enumerate().map(((index, note)) => {
     show: box // do not break entries across pages
     let note-icon = final-note-img.at(index, default: [])
     let note-entry = final-note-content.at(index, default: [])
+    let note-location = final-note-location.at(index, default: [])
+    let page-number = counter(page).at(note-location).first()
     link(
-      note.location().position(),
+      note-location,
       grid(
-        // columns: (1em, 1em, 1fr),
         columns: (1em, 1fr),
         column-gutter: 5pt,
         align: top,
         [#v(-1.5pt) #note-icon],
-        [#note-entry #box(width: 1fr, repeat(gap: 0.5em)[.]) #note.location().page()],
+        [#note-entry #box(width: 1fr, repeat(gap: 0.5em)[.]) #page-number],
       ),
     )
   })
