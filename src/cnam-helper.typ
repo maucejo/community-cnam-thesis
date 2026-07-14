@@ -1,15 +1,17 @@
 #import "cnam-deps.typ": *
 
-#let cnam-logo = state("cnam-logo", none)
-#let cnam-lang = state("cnam-lang", "fr")
-#let note-counter = counter("note-counter")
-#let note-img = state("note-img", ())
-#let note-content = state("note-content", ())
-#let note-location = state("note-location", ())
-#let review-note = counter("review-note")
-#let review-comment = counter("review-comment")
-#let review-question = counter("review-question")
-#let review-todo = counter("review-todo")
+#let cnam-states = (
+logo: state("cnam-logo", none),
+lang: state("cnam-lang", "fr"),
+note-counter: counter("note-counter"),
+note-img: state("note-img", ()),
+note-content: state("note-content", ()),
+note-location: state("note-location", ()),
+review-note: counter("review-note"),
+review-comment: counter("review-comment"),
+review-question: counter("review-question"),
+review-todo: counter("review-todo")
+)
 
 #let cnam-fonts = (
     body: ("TeXGyrePagellaX", "Libertinus Serif", "New Computer Modern"),
@@ -37,8 +39,8 @@
 
 // Back cover with abstract and resume
 #let backcover(resume: none, abstract: none) = context {
-  let logo = if cnam-logo.get() != none {
-    let custom-logo = cnam-logo.get()
+  let logo = if cnam-states.logo.get() != none {
+    let custom-logo = cnam-states.logo.get()
     if type(custom-logo) == array { custom-logo } else { (custom-logo,) }
   } else {
     (image("resources/logo/victoire.svg", width: 50%), image("resources/logo/cnam.png", width: 5.5cm))
@@ -70,7 +72,7 @@
 
   figure(
     kind: "algorithm",
-    supplement: context if cnam-lang.get() == "fr" {
+    supplement: context if cnam-states.lang.get() == "fr" {
       "Algorithme"
     } else {
       "Algorithm"
@@ -115,21 +117,21 @@
 #let comment(by: "Reviewer", type: "note", inline: false, color: blue, icon: true, ..args, body) = context {
   set text(size: 0.8em)
   // Update the note counter
-  note-counter.step()
+  cnam-states.note-counter.step()
   let current-note-location = here()
 
   if type.contains("note") {
-    review-note.step()
+    cnam-states.review-note.step()
   } else if type.contains("comment") {
-    review-comment.step()
+    cnam-states.review-comment.step()
   } else if type.contains("question") {
-    review-question.step()
+    cnam-states.review-question.step()
   } else if type.contains("todo") {
-    review-todo.step()
+    cnam-states.review-todo.step()
   }
 
   // Creation of the note content
-  let note-cnt = text(fill: color)[*#note-counter.display()*]
+  let note-cnt = text(fill: color)[*#cnam-states.note-counter.display()*]
   let note-text = [#text(fill: color)[*#note-cnt #by :*] #body]
   let img = if type != none {
     cnam-color-svg("resources/logo/" + type + ".svg", color, width: 1em)
@@ -157,9 +159,9 @@
     marginalia.note.with(counter: none, block-style: block-style)
   }
 
-  note-location.update(locations => locations + (current-note-location,))
-  note-img.update(imgs => imgs + (img,))
-  note-content.update(content => content + (note-text,))
+  cnam-states.note-location.update(locations => locations + (current-note-location,))
+  cnam-states.note-img.update(imgs => imgs + (img,))
+  cnam-states.note-content.update(content => content + (note-text,))
   [
     #if icon or not inline [#box(img) #super(note-cnt)]
     #cnam-note(..args)[#current-note-content <cnam-note>]
@@ -176,15 +178,15 @@
 
 // List of review comments
 #let listofnotes = context {
-  let title = if cnam-lang.get() == "fr" {
+  let title = if cnam-states.lang.get() == "fr" {
     "Commentaires de relecture"
   } else {
     "Review comments"
   }
   heading(title, numbering: none, outlined: false)
-  let final-note-img = note-img.final()
-  let final-note-content = note-content.final()
-  let final-note-location = note-location.final()
+  let final-note-img = cnam-states.note-img.final()
+  let final-note-content = cnam-states.note-content.final()
+  let final-note-location = cnam-states.note-location.final()
 
   let notes = query(selector(<cnam-note>)).enumerate().map(((index, note)) => {
     show: box // do not break entries across pages
@@ -209,22 +211,27 @@
     ..notes
   )
 
-  let summary = if cnam-lang.get() == "fr" {
+  let summary = if cnam-states.lang.get() == "fr" {
     "Résumé des commentaires de relecture"
   } else {
     "Summary of review comments"
   }
 
   v(2em)
+
+  let sum_notes = cnam-states.review-note.final().first() + cnam-states.review-comment.final().first() + cnam-states.review-question.final().first() + cnam-states.review-todo.final().first()
   align(center, summary + grid(
     columns: 2,
-    column-gutter: 1em,
+    align: (left, center),
+    column-gutter: 1.5em,
     inset: 0.5em,
     grid.hline(stroke: 0.75pt),
-    [Note], [#review-note.final().first()],
-    [Comment], [#review-comment.final().first()],
-    [Question], [#review-question.final().first()],
-    [Todo], [#review-todo.final().first()],
-    grid.hline(stroke: 0.75pt)
+    [Note], [#cnam-states.review-note.final().first()],
+    [Comment], [#cnam-states.review-comment.final().first()],
+    [Question], [#cnam-states.review-question.final().first()],
+    [Todo], [#cnam-states.review-todo.final().first()],
+    grid.hline(stroke: 0.75pt),
+    [*Total*], [#sum_notes],
+    grid.hline(stroke: 0.75pt),
   ))
 }

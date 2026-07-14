@@ -45,7 +45,7 @@
 
 #let render-box = showybox.with(
   title: align(center)[
-    #let title = context if cnam-lang.get() == "fr" {
+    #let title = context if cnam-states.lang.get() == "fr" {
       "Rendu"
     } else {
       "Rendering"
@@ -90,7 +90,7 @@
     inset: (top: 6pt, rest: 7pt),
     above: 1.5em,
     [
-      #let arg-name = if cnam-lang.get() == "fr" {"Paramètre"} else {"Argument"}
+      #let arg-name = if cnam-states.lang.get() == "fr" {"Paramètre"} else {"Argument"}
       #let def = if default != none {[: ]} else {none}
       #place(top+left, dy: -15.5pt, dx: 5.75pt, box(inset: 5pt, fill:white, text(size: 0.85em, arg-name)))
       #v(5pt)

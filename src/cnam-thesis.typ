@@ -12,10 +12,10 @@
     // Merge the default thesis info with the provided thesis info
     let cnam-thesis-info = thesis-info-default + thesis-info
      if cnam-thesis-info.logo != none {
-        cnam-logo.update(cnam-thesis-info.logo)
+        cnam-states.logo.update(cnam-thesis-info.logo)
     }
-    cnam-lang.update(lang)
-    note-counter.step()
+    cnam-states.lang.update(lang)
+    cnam-states.note-counter.step()
 
     set bibliography(style: "./resources/IEEEtran-francais.csl")
 
