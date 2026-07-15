@@ -46,7 +46,7 @@ To use the template, you must import it into your main `typ` file. Assuming the 
 
 #info-box[If you split your document into multiple files, you must insert the previous command in the preamble of each file.]
 
-After importing the template, it must be initialized by applying a display rule (`show` rule) with the #cmd("report-template") command and passing the required options with the `with` instruction in your main `typ` file:
+After importing the template, it must be initialized by applying a display rule (`show` rule) with the #cmd("cnam-thesis") command and passing the required options with the `with` instruction in your main `typ` file:
 
 #code-box[```typ
 #show: cnam-thesis.with(

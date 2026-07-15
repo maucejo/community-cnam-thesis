@@ -46,7 +46,7 @@ Pour utiliser le modèle, il faut l'importer dans votre fichier principal `typ`.
 
 #info-box[Si vous décomposez votre document en différents fichiers, il faut insérer la commande précédente en préambule de chaque fichier.]
 
-Après avoir importé le modèle, celui doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("report-template") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
+Après avoir importé le modèle, celui doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("cnam-thesis") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
 
 #code-box[```typ
 #show: cnam-thesis.with(
