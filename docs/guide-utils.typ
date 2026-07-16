@@ -92,7 +92,7 @@
     [
       #let arg-name = if cnam-states.lang.get() == "fr" {"Paramètre"} else {"Argument"}
       #let def = if default != none {[: ]} else {none}
-      #place(top+left, dy: -15.5pt, dx: 5.75pt, box(inset: 5pt, fill:white, text(size: 0.85em, arg-name)))
+      #place(top+left, dy: -15.5pt, dx: 5.75pt, box(inset: 5pt, fill:white, text(size: 1em, arg-name)))
       #v(5pt)
       #grid(
       columns: (1fr, 1fr),
