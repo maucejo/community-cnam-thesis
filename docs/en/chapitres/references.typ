@@ -40,24 +40,23 @@ For more information about the #cmd("bibliography") command, please refer to the
 Citations are inserted into the text either by using the #cmd("cite") command, or by using the same syntax as cross-references #text(fill: cnam-colors.primary)[`@key`].
 
 #v(1em)
-#example-box(numbering: false, vspace: -1em)[
+#example(numbering: false, vspace: -1em,
 ```typ
-La composition typographique scientifique a été révolutionnée par Donald Knuth dans les années 1970 @Knuth1984.
+Scientific typesetting was revolutionized by Donald Knuth in the 1970s @Knu84.
 ```
-][
-  Scientific typesetting was revolutionized by Donald Knuth in the 1970s @Knu84.
-]
+)
+
 
 === Multiple references
 
 To insert multiple references in the text, simply chain them.
 
 #v(1em)
-#example-box(numbering: false, vspace: -1em)[
+#example(numbering: false, vspace: -1em,
 ```typ
-Typst est un nouveau langage de balise développé par deux étudiants allemands, Laurenz Mädje et Martin Haug, dans le cadre de leur mémoire de M2 en informatique @Mad22 @Hau22.
+Typst is a new markup language developed by two German students, Laurenz Mädje and Martin Haug, as part of their master's thesis in computer science @Mad22 @Hau22.
 ```
-][Typst is a new markup language developed by two German students, Laurenz Mädje and Martin Haug, as part of their master's thesis in computer science @Mad22 @Hau22.]
+)
 
 == Glossary, acronyms, and nomenclatures
 

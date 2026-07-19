@@ -39,23 +39,16 @@ However, when writing a scientific text, it is often necessary to add a caption 
 
 This command inserts an image with a caption and a label for cross-referencing. The label is defined at the end of the #cmd("figure") environment with the syntax #text(fill: cnam-colors.primary,`<mon-label>`). To cite this figure in the text, simply use the command #text(fill: cnam-colors.primary,`@mon-label`).
 
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typst
 #figure(
-  image("cnam.png"),
+  image("./images/cnam.png"),
   caption: "Official Cnam logo"
 ) <fig:logo-cnam>
 
 Figure @fig:logo-cnam shows the official Cnam logo.
 ```
-][
-  #figure(
-  image("../../images/cnam.png"),
-  caption: "Official Cnam logo"
-) <fig:logo-cnam>
-
-#noindent Figure @fig:logo-cnam shows the official Cnam logo.
-]
+)
 
 You can also insert multiple images into a single figure by using the #cmd("subfigure") environment from the `bookly` template on which this template is based. The syntax is as follows:
 #code-box[
@@ -71,11 +64,11 @@ You can also insert multiple images into a single figure by using the #cmd("subf
 ]
 
 #v(1em)
-#zebraw(numbering: false, lang-color: teal,
+#example-box(ncol: 1, numbering: false, row-gutter: 1em)[
 ```typst
 #subfigure(
-  figure(image("cnam.png"), caption: []),
-  figure(image("victoire.svg", width: 50%), caption: []), <fig:b>,
+  figure(image("./images/cnam.png"), caption: []),
+  figure(image("./images/victoire.svg", width: 50%), caption: []), <fig:b>,
   columns: (1fr, 1fr),
   caption: [(a) Cnam logo and (b) Victory stamp],
   label: <fig:subfig>,
@@ -83,9 +76,8 @@ You can also insert multiple images into a single figure by using the #cmd("subf
 
 Figure @fig:subfig shows the official Cnam logo and the allegory of Winged Victory, associated with the Latin motto "_Docet Omnes Ubique_" (see Figure @fig:b).
 ```
-)
-#render-box[
-  #subfigure(
+][
+#subfigure(
   figure(image("../../images/cnam.png"), caption: []),
   figure(image("../../images/victoire.svg", width: 50%), caption: []), <fig:b>,
   columns: (1fr, 1fr),
@@ -93,7 +85,7 @@ Figure @fig:subfig shows the official Cnam logo and the allegory of Winged Victo
   label: <fig:subfig>,
 )
 
-#noindent Figure @fig:subfig shows the official Cnam logo and the allegory of Winged Victory, associated with the Latin motto "_Docet Omnes Ubique_" (see Figure @fig:b).
+Figure @fig:subfig shows the official Cnam logo and the allegory of Winged Victory, associated with the Latin motto "_Docet Omnes Ubique_" (see Figure @fig:b).
 ]
 
 == Tables
@@ -112,10 +104,10 @@ Tables can be inserted into the document using Typst's #cmd("table") environment
 ]
 
 #v(1em)
-#example-box[
+#example(numbering: false,
 ```typst
 #table(
-    columns: 2,
+    columns: (1fr,)*2,
     align: center + horizon,
     inset: 5pt,
     [*Shape*], [*Perimeter*],
@@ -123,18 +115,8 @@ Tables can be inserted into the document using Typst's #cmd("table") environment
     [Circle with radius $r$],[$2pi r$],
   )
 ```
-][
-  #set align(center)
-  #set math.equation(numbering: none)
-  #table(
-    columns: 2,
-    align: center + horizon,
-    inset: 5pt,
-    [*Shape*], [*Perimeter*],
-    [Square with side $a$],[$4a$],
-    [Circle with radius $r$],[$2pi r$],
-  )
-]
+)
+
 
 As with figures, it is possible to add a caption and a label to a table by using the #cmd("table") environment from the `bookly` template. The syntax is as follows:
 #code-box[
@@ -153,10 +135,10 @@ As with figures, it is possible to add a caption and a label to a table by using
 ]
 
 #v(1em)
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typ
 #let mon-tableau = table(
-    columns: 2,
+    columns: (1fr,)*2,
     align: center + horizon,
     inset: 5pt,
     [*Shape*], [*Perimeter*],
@@ -171,23 +153,7 @@ As with figures, it is possible to add a caption and a label to a table by using
 
 Table @tab:perimetres presents the formulas used to calculate the perimeters of a few geometric shapes.
 ```
-][
-#let mon-tableau = table(
-    columns: 2,
-    align: center + horizon,
-    inset: 5pt,
-    [*Shape*], [*Perimeter*],
-    [Square with side $a$],[$4a$],
-    [Circle with radius $r$],[$2pi r$],
-  )
-
-#figure(
-  mon-tableau,
-  caption: "Table of perimeters",
-) <tab:perimetres>
-
-Table @tab:perimetres presents the formulas used to calculate the perimeters of a square and a circle.
-]
+)
 
 #info-box[Careful readers will have noticed that, to avoid cluttering the code, we defined the table in a variable named #text(fill: cnam-colors.primary,`mon-tableau`) before inserting it into the #cmd("figure") environment. This makes it possible to reuse the same table in different parts of the document if necessary and makes the code more readable.]
 
@@ -216,7 +182,7 @@ Since Typst is a Turing-complete language, it is possible to create plots direct
 
 The example below shows how to create a figure with two plots representing the free response of a one-degree-of-freedom mechanical system in the undamped and underdamped cases. For more information about the `lilaq` package, see the #link("https://lilaq.org/", "lilaq documentation").
 
-#zebraw(numbering: false, lang-color: teal,
+#example-box(ncol: 1, numbering: false, row-gutter: 11em)[
 ```typ
 #import "@preview/lilaq:0.6.0" as lq
 
@@ -285,10 +251,7 @@ The example below shows how to create a figure with two plots representing the f
 
 Figure @fig:free-response shows the free response of a one-degree-of-freedom mechanical system in the undamped and underdamped cases.
 ```
-)
-
-#pagebreak()
-#render-box[
+][
 #let free_response(om0, xi, x0, v0, t) = {
   if xi < 1. {
     // Underdamped

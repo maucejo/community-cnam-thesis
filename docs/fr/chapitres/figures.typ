@@ -19,11 +19,11 @@ La syntaxe de base pour insérer une image est la suivante#footnote[Pour plus d'
 ```
 ]
 
-#example-box(numbering: false)[
-  ```typst
-  #image("cnam.png")
-  ```
-][#image("../../images/cnam.png")]
+#example(numbering: false,
+```typst
+#image("./images/cnam.png")
+```
+)
 
 #info-box[Typst accepte un certain nombre de formats d'image. Les formats actuellement supportés sont les suivants : PNG, JPEG, GIF, SVG, PDF, WEBP et Raw Pixel Data.]
 
@@ -40,23 +40,16 @@ Cependant, lors de la rédaction d'un texte scientifique, il est souvent nécess
 
 Cette commande permet d'insérer une image avec une légende et un label pour la référence croisée. Le label est défini à la fin de l'environnement #cmd("figure") avec la syntaxe #text(fill: cnam-colors.primary,`<mon-label>`). Pour citer cette figure dans le texte, il suffit d'utiliser la commande #text(fill: cnam-colors.primary,`@mon-label`).
 
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typst
 #figure(
-  image("cnam.png"),
+  image("./images/cnam.png"),
   caption: "Logo officiel du Cnam"
 ) <fig:logo-cnam>
 
 La Figure @fig:logo-cnam présente le logo officiel du Cnam.
 ```
-][
-  #figure(
-  image("../../images/cnam.png"),
-  caption: "Logo officiel du Cnam"
-) <fig:logo-cnam>
-
-#noindent La Figure @fig:logo-cnam présente le logo officiel du Cnam.
-]
+)
 
 On peut également insérer plusieurs images dans une seule figure en utilisant l'environnement #cmd("subfigure") du template `bookly` sur lequel est basé le présent gabarit. La syntaxe est la suivante :
 #code-box[
@@ -72,11 +65,11 @@ On peut également insérer plusieurs images dans une seule figure en utilisant 
 ]
 
 #v(1em)
-#zebraw(numbering: false, lang-color: teal,
+#example-box(ncol: 1, numbering: false, row-gutter: 1em)[
 ```typst
 #subfigure(
-  figure(image("cnam.png"), caption: []),
-  figure(image("victoire.svg", width: 50%), caption: []), <fig:b>,
+  figure(image("./images/cnam.png"), caption: []),
+  figure(image("./images/victoire.svg", width: 50%), caption: []), <fig:b>,
   columns: (1fr, 1fr),
   caption: [(a) Logo du Cnam and (b) Estampille de la Victoire],
   label: <fig:subfig>,
@@ -84,8 +77,7 @@ On peut également insérer plusieurs images dans une seule figure en utilisant 
 
 La Figure @fig:subfig présente le logo officiel du Cnam et l'allégorie de la Victoire ailée, associée à la devise latine "_Docet Omnes Ubique_" (voir Figure @fig:b).
 ```
-)
-#render-box[
+][
   #subfigure(
   figure(image("../../images/cnam.png"), caption: []),
   figure(image("../../images/victoire.svg", width: 50%), caption: []), <fig:b>,
@@ -94,7 +86,7 @@ La Figure @fig:subfig présente le logo officiel du Cnam et l'allégorie de la V
   label: <fig:subfig>,
 )
 
-#noindent La Figure @fig:subfig présente le logo officiel du Cnam et l'allégorie de la Victoire ailée, associée à la devise latine "_Docet Omnes Ubique_" (voir Figure @fig:b).
+La Figure @fig:subfig présente le logo officiel du Cnam et l'allégorie de la Victoire ailée, associée à la devise latine "_Docet Omnes Ubique_" (voir Figure @fig:b).
 ]
 
 == Tableaux
@@ -115,10 +107,10 @@ Les tableaux peuvent être insérés dans le document en utilisant l'environneme
 ]
 
 #v(1em)
-#example-box[
+#example(numbering: false,
 ```typst
 #table(
-    columns: 2,
+    columns: (1fr,)*2,
     align: center + horizon,
     inset: 5pt,
     [*Forme*], [*Périmètre*],
@@ -126,18 +118,7 @@ Les tableaux peuvent être insérés dans le document en utilisant l'environneme
     [Cercle de rayon $r$],[$2pi r$],
   )
 ```
-][
-  #set align(center)
-  #set math.equation(numbering: none)
-  #table(
-    columns: 2,
-    align: center + horizon,
-    inset: 5pt,
-    [*Forme*], [*Périmètre*],
-    [Carré de côté $a$],[$4a$],
-    [Cercle de rayon $r$],[$2pi r$],
-  )
-]
+)
 
 Comme pour les figures, il est possible d'ajouter une légende et un label à un tableau en utilisant l'environnement #cmd("table") du template `bookly`. La syntaxe est la suivante :
 #code-box[
@@ -156,7 +137,7 @@ Comme pour les figures, il est possible d'ajouter une légende et un label à un
 ]
 
 #v(1em)
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typ
 #let mon-tableau = table(
     columns: 2,
@@ -174,23 +155,7 @@ Comme pour les figures, il est possible d'ajouter une légende et un label à un
 
 Le Tableau @tab:perimetres présente les formules de calcul des périmètres de quelques formes géométriques.
 ```
-][
-#let mon-tableau = table(
-    columns: 2,
-    align: center + horizon,
-    inset: 5pt,
-    [*Forme*], [*Périmètre*],
-    [Carré de côté $a$],[$4a$],
-    [Cercle de rayon $r$],[$2pi r$],
-  )
-
-#figure(
-  mon-tableau,
-  caption: "Tableau des périmètres",
-) <tab:perimetres>
-
-Le Tableau @tab:perimetres présente les formules de calcul des périmètres d'un carré et d'un cercle.
-]
+)
 
 #info-box[Le lecteur attentif aura noté que pour éviter d'alléger le code, nous avons défini le tableau dans une variable #text(fill: cnam-colors.primary,`mon-tableau`) avant de l'insérer dans l'environnement #cmd("figure"). Cela permet de réutiliser le même tableau à différents endroits du document si nécessaire et de rendre le code plus lisible.]
 
@@ -199,7 +164,7 @@ Le Tableau @tab:perimetres présente les formules de calcul des périmètres d'u
 Le template `cnam-thesis` permet de définir un titre long et un titre court pour les figures et les tableaux via la fonction #cmd("ls-caption"). Le titre long est utilisé dans la légende de la figure ou du tableau, tandis que le titre court est utilisé dans la liste des figures ou des tableaux.
 
 #v(1.5em)
-#example-box(numbering: false,vspace: -1.5em)[
+#example-box(numbering: false, vspace: -1.5em)[
 ```typst
 #figure(
     rect(),
@@ -219,7 +184,8 @@ Typst étant un langage Turing complet, il est possible de créer des courbes di
 
 L'exemple ci-dessous montre comment créer une figure avec deux courbes représentant la réponse libre d'un système mécanique à un degré de liberté non amorti et sous-amorti. Pour plus d'informations sur le package `lilaq`, voir la #link("https://lilaq.org/", "Documentation de lilaq").
 
-#zebraw(numbering: false, lang-color: teal,
+#v(1em)
+#example-box(ncol: 1, numbering: false, row-gutter: 7em)[
 ```typ
 #import "@preview/lilaq:0.6.0" as lq
 
@@ -288,10 +254,7 @@ L'exemple ci-dessous montre comment créer une figure avec deux courbes représe
 
 La Figure @fig:free-response présente la réponse libre d'un système mécanique à un degré de liberté non amorti et sous-amorti.
 ```
-)
-
-#pagebreak()
-#render-box[
+][
 #let free_response(om0, xi, x0, v0, t) = {
   if xi < 1. {
     // Sous-amorti
@@ -345,7 +308,6 @@ La Figure @fig:free-response présente la réponse libre d'un système mécaniqu
   column-gutter: 1em,
   [#undamped], [#underdamped],
 )
-
 #figure(
   fig-grid,
   caption: [Réponse libre d'un système mécanique à un degré de liberté],
@@ -353,3 +315,67 @@ La Figure @fig:free-response présente la réponse libre d'un système mécaniqu
 
 #noindent La Figure @fig:free-response présente la réponse libre d'un système mécanique à un degré de liberté non amorti et sous-amorti.
 ]
+
+// #pagebreak()
+// #render-box[
+// #let free_response(om0, xi, x0, v0, t) = {
+//   if xi < 1. {
+//     // Sous-amorti
+//     let Om0 = om0 * calc.sqrt(1 - xi * xi)
+//     let a = x0
+//     let b = (v0 + xi * om0 * x0) / Om0
+//     calc.exp(-xi * om0 * t) * (a * calc.cos(Om0 * t) + b * calc.sin(Om0 * t))
+//   } else if xi <= 1. {
+//     // Amortissement critique
+//     (x0 + (v0 + om0 * x0) * t) * calc.exp(-om0 * t)
+//   } else {
+//     // Sur-amorti
+//     let s = om0*calc.sqrt(xi * xi - 1)
+//     let a = x0
+//     let b = (v0 + xi * om0 * x0)/s
+
+//     calc.exp(-xi * om0 * t) * (a * calc.cosh(s * t) + b * calc.sinh(s * t))
+//   }
+// }
+
+// #let om0 = 2 * calc.pi * 2
+// #let x0 = 0.02
+// #let v0 = -0.5
+// #let t = lq.linspace(0, 5, num: 500)
+
+// #let undamped = lq.diagram(
+//     width: 100%,
+//   title: [*Réponse libre non amortie*],
+//   xlabel: [Temps (s)],
+//   ylabel: [Déplacement (m)],
+//   margin: 0%,
+//   lq.plot(t, t => free_response(om0, 0, x0, v0, t),
+//   color: cnam-colors.primary,
+//   mark: none,
+//   ),
+// )
+
+// #let underdamped = lq.diagram(
+//   width: 100%,
+//   title: [*Réponse libre sous-amortie*],
+//   xlabel: [Temps (s)],
+//   margin: 0%,
+//   lq.plot(t, t => free_response(om0, 0.1, x0, v0, t),
+//   color: cnam-colors.primary,
+//   mark: none,
+//   ),
+// )
+
+// #let fig-grid = grid(
+//   columns: (1fr,)*2,
+//   column-gutter: 1em,
+//   [#undamped], [#underdamped],
+// )
+
+// #figure(
+//   fig-grid,
+//   caption: [Réponse libre d'un système mécanique à un degré de liberté],
+// ) <fig:free-response>
+
+// #noindent La Figure @fig:free-response présente la réponse libre d'un système mécanique à un degré de liberté non amorti et sous-amorti.
+// ]

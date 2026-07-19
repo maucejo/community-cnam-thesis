@@ -64,13 +64,11 @@ Pour créer des références croisées vers des sections, figures, tableaux, éq
 Pour citer des éléments référencés, on utilise la commande #text(fill: cnam-colors.primary,`@mon-label`).
 
 #v(1em)
-#example-box(numbering: false, vspace: -0.5em)[
+#example(numbering: false, vspace: -0.5em,
 ```typst
 Pour plus de détails, voir le chapitre @ch:structure et la section @s:structure-titles.
 ```
-][
-Pour plus de détails, voir le chapitre @ch:structure et la section @s:structure-titles.
-]
+)
 
 == Mise en forme du texte
 
@@ -78,18 +76,18 @@ Cette section présente différents éléments de mise en forme du texte.
 
 === Emphase et code
 
-#example-box(lang: [typst], numbering: false, vspace: -0.5em)[
+#example(lang: [typst], numbering: false, vspace: -0.5em,
 ```
 *gras*, _italique_, _*gras et italique*_, `code inline`, #strike[barré], #super[exposant], #sub[indice]
 ```
-][*gras*, _italique_, _*gras et italique*_, `code inline`, #strike[barré], #super[exposant], #sub[indice]]
+)
 
 === Liens hypertextes
 
 Pour créer des liens hypertextes, il faut utiliser la commande #cmd("link") de Typst (voir #link("https://typst.app/docs/commands/link", "Documentation Typst") pour plus de détails).
 
 #v(1em)
-#example-box(numbering: false)[
+#example(numbering: false,
   ```typst
     #link("https://www.cnam.fr", "Le site du Cnam")
 
@@ -97,13 +95,7 @@ Pour créer des liens hypertextes, il faut utiliser la commande #cmd("link") de 
 
     #link("mailto:contact@cnam.fr")
     ```
-][
-#noindent#link("https://www.cnam.fr", "Le site du Cnam")
-
-#noindent https://www.cnam.fr
-
-#noindent#link("mailto:contact@cnam.fr")
-]
+)
 
 === Listes
 
@@ -156,25 +148,20 @@ Il existe plusieurs types de listes dans Typst: les listes à puces, les listes 
 Les citations sont utilisées pour référencer des œuvres ou des idées développées par d'autres auteurs.
 
 #v(0.5em)
-#example-box(numbering: false, vspace: -1.25em)[
+#example(numbering: false, vspace: -1.25em,
 ```typst
 #quote(attribution: "Platon", block: true)[Il y a en chacun de nous des calculs que nous nommons espérance.]
 ```
-][
-  #quote(attribution: "Platon", block: true)[Il y a en chacun de nous des calculs que nous nommons espérance.]
-]
-
+)
 
 === Notes de bas de pages
 
 #v(1em)
-#example-box(numbering: false, vspace: -1.25em)[
+#example(numbering: false, vspace: -1.25em,
 ```typst
-#quote(attribution: "Platon", block: true)[Il y a en chacun de nous des calculs que nous nommons espérance.]
+ Le Cnam a été fondé le 10 octobre 1794#footnote[19 vendémiaire an III de la Révolution.].
 ```
-][
-  Le Cnam a été fondé en le 10 octobre 1794#footnote[19 vendémiaire an III de la Révolution.].
-]
+)
 
 === Sauts de page
 

@@ -25,16 +25,13 @@ For the full list of emojis (and yes, it is possible #emoji.cat.face.heart), cli
 Inline equations are written between the `$...$` symbols and are integrated into the text.
 
 #v(1em)
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typ
 #let st = sym.space.thin
 
 The Fourier transform of a function $f(t)$ is defined by the integral $hat(f)(xi) = integral_(-oo)^(+oo) f(t) st e^(-2 pi i xi t) dif t$
 ```
-][
-#let st = sym.space.thin
-The Fourier transform of a function $f(t)$ is defined by the integral $hat(f)(xi) = integral_(-oo)^(+oo) f(t) st e^(-2 pi i xi t) dif t$
-]
+)
 
 == Numbered and unnumbered equations
 
@@ -53,46 +50,33 @@ $ y = f(x) $.
 ]
 
 #v(1em)
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typ
 $
 i planck (partial Psi)/ (partial t) = hat(H) space.thin Psi.
 $ <eq:schrodinger>
 
-#noindent The Schrödinger equation @eq:schrodinger describes the temporal evolution #sym.dots
-]
+The Schrödinger equation @eq:schrodinger describes the temporal evolution #sym.dots
 ```
-][
-$
-  i planck (partial Psi)/ (partial t) = hat(H) space.thin Psi.
-$ <eq:schrodinger>
-
-#noindent The Schrödinger equation @eq:schrodinger describes the temporal evolution #sym.dots
-]
+)
 
 To avoid numbering an equation, simply add the #mtype("label") #text(fill: cnam-colors.primary)[`<nonum-eq>`] after the closing `$` symbol of the equation. For example, the following equation will not be numbered:
 
 #v(1.25em)
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typ
 $
 i planck (partial Psi)/ (partial t) = hat(H) space.thin Psi.
 $ <nonum-eq>
-]
 ```
-][
-$
-  i planck (partial Psi)/ (partial t) = hat(H) space.thin Psi.
-$ <nonum-eq>
-]
-
+)
 
 == Advanced environments
 
 Equations can also be written in more complex environments, such as systems of equations. For example, to write equations over multiple lines, you can use:
 
 #v(1em)
-#example-box(numbering: false, vspace: -1em)[
+#example(numbering: false, vspace: -1em,
 ```typ
 #let bm(x) = $upright(bold(#x))$
 $
@@ -102,19 +86,11 @@ $
   nabla times bm(B) &= mu_0 space.thin bm(J) + mu_0 epsilon_0 (partial bm(E))/(partial t).
 $
 ```
-][
-#let bm(x) = $upright(bold(#x))$
-$
-  nabla dot.c bm(E) &= rho/epsilon_0, \
-  nabla dot.c bm(B) &= 0, \
-  nabla times bm(E) &= - (partial bm(B))/(partial t), \
-  nabla times bm(B) &= mu_0 space.thin bm(J) + mu_0 epsilon_0 (partial bm(E))/(partial t).
-$
-]
+)
 
 You can also write the previous equations as a single numbered equation:
 #v(1em)
-#example-box(numbering: false, vspace: -1em)[
+#example(numbering: false, vspace: -1em,
 ```typ
 #let bm(x) = $upright(bold(#x))$
 $
@@ -124,23 +100,14 @@ $
   nabla times bm(B) &= mu_0 space.thin bm(J) + mu_0 epsilon_0 (partial bm(E))/(partial t).
 $ <equate:revoke>
 ```
-][
-#let bm(x) = $upright(bold(#x))$
-$
-  nabla dot.c bm(E) &= rho/epsilon_0, \
-  nabla dot.c bm(B) &= 0, \
-  nabla times bm(E) &= - (partial bm(B))/(partial t), \
-  nabla times bm(B) &= mu_0 space.thin bm(J) + mu_0 epsilon_0 (partial bm(E))/(partial t).
-$ <equate:revoke>
-]
+)
 
 #info-box[Sub-equation numbering is handled by the `equate` package. The #mtype("label") #text(fill: cnam-colors.primary)[`<equate:revoke>`] makes it possible to use Typst's native numbering system.]
 
 You can also write equations as a system of equations, as follows:
 
-#pagebreak()
 #v(0.5em)
-#example-box(numbering: false)[
+#example(numbering: false,
 ```typ
 $
   cases(
@@ -149,15 +116,9 @@ $
   )
 $
 ```
-][
-$
-  cases(
-    dot(x)(t) &= A x(t) + B u(t),
-    y(t) &= C x(t) + D u(t),
-  )
-$
-]
+)
 
+#pagebreak()
 The `bookly` template allows the creation of boxed equations using the #cmd("boxeq") command.
 
 #v(1em)
