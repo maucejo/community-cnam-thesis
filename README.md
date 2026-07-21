@@ -116,4 +116,6 @@ You can also load data from JSON/YAML and spread it into `thesis-info`.
 
 MIT licensed
 
+Caution: The Cnam logo included in the template is from Wikimedia and is under a CC-0 license.
+
 Copyright © 2026 Mathieu AUCEJO (maucejo)
