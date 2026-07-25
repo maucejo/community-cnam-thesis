@@ -108,7 +108,7 @@ There are several types of lists in Typst: bulleted lists, numbered lists, and t
   column-gutter: 1em,
   [
     #set align(horizon)
-    #zebraw(lang: lang-title, lang-color:codly-languages.typ.color.lighten(25%), numbering: false,
+    #zebraw(numbering: false,
     ```typst
     - First item
     - Second item

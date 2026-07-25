@@ -65,7 +65,7 @@ Pour citer des éléments référencés, on utilise la commande #text(fill: cnam
 
 #v(1em)
 #example(numbering: false, vspace: -0.5em,
-```typst
+```typ
 Pour plus de détails, voir le chapitre @ch:structure et la section @s:structure-titles.
 ```
 )
@@ -106,8 +106,8 @@ Il existe plusieurs types de listes dans Typst: les listes à puces, les listes 
   column-gutter: 1em,
   [
   #set align(horizon)
-  #zebraw(lang: lang-title, lang-color:codly-languages.typ.color.lighten(25%), numbering: false,
-  ```typst
+  #zebraw(numbering: false,
+  ```typ
   - Premier élément
   - Deuxième élément
     - Sous-élément 1 (1 tabulation)

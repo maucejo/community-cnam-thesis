@@ -66,7 +66,7 @@ On peut également insérer plusieurs images dans une seule figure en utilisant 
 
 #v(1em)
 #example-box(ncol: 1, numbering: false, row-gutter: 1em)[
-```typst
+```typ
 #subfigure(
   figure(image("./images/cnam.png"), caption: []),
   figure(image("./images/victoire.svg", width: 50%), caption: []), <fig:b>,

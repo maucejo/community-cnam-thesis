@@ -80,16 +80,7 @@
   align: horizon,
   ..args,
   [
-    #let code-lang = left.at("lang", default: "text")
-    #let lang-meta = codly-languages.at(
-      code-lang,
-      default: (icon: [], name: code-lang, color: teal),
-    )
-    #let lang-title = box(height: 0.7em, lang-meta.icon + h(0.5em) + text(fill: white, lang-meta.name))
-    #zebraw(
-    lang: lang-title,
-    lang-color: codly-languages.at(code-lang).color.lighten(25%),
-    numbering: numbering, left)
+    #zebraw(numbering: numbering, left)
   ],
   [#v(vspace) #render-box[#right]],
 )
@@ -100,16 +91,7 @@
   align: horizon,
   ..args,
   [
-    #let code-lang = code.at("lang", default: "text")
-    #let lang-meta = codly-languages.at(
-      code-lang,
-      default: (icon: [], name: code-lang, color: teal),
-    )
-    #let lang-title = box(height: 0.7em, lang-meta.icon + h(0.5em) + text(fill: white, lang-meta.name))
-    #zebraw(
-    lang: lang-title,
-    lang-color: codly-languages.at(code-lang).color.lighten(20%),
-    numbering: numbering, code)
+    #zebraw(numbering: numbering, code)
   ],
   [
     #set par(first-line-indent: 0pt)
