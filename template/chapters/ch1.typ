@@ -1,7 +1,5 @@
 #import "@preview/community-cnam-thesis:0.1.1": *
 
-// #show: chapter.with(title: "First chapter", abstract: lorem(100), label: <ch:1>)
-
 = First chapter
 
 #lorem(100)
@@ -28,7 +26,7 @@ Figure @fig:1 is a beautiful typst logo.
 
 #figure(
 image("../images/typst-logo.svg", width: 75%),
-caption: [#ls-caption([#lorem(10)], [#lorem(2)])],
+caption: [#short-or-long([#lorem(2)], [#lorem(10)])],
 ) <fig:1>
 
 Figure @fig:subfig the Typst logo. Figure @b is a Typst logo @Smi21.
