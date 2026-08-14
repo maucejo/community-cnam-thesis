@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 #import "@preview/mantys:1.0.2": *
 #import "@preview/dtree:0.1.1": dtree
 #import "../../guide-utils.typ": *
@@ -41,7 +41,7 @@ The `community-cnam-thesis` template defines two main colors to ensure visual co
 To use the template, you must import it into your main `typ` file. Assuming the template and the main file are in the same folder, simply insert the following command on the first line of the main file.
 
 #code-box[```typ
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 ```]
 
 #info-box[If you split your document into multiple files, you must insert the previous command in the preamble of each file.]
@@ -222,7 +222,7 @@ Based on the structure defined in the previous section, the main `main.typ` file
 #code-box[
 ```typ
 // main.typ
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 
 #let supervisor = ...
 #let co-supervisor = ...

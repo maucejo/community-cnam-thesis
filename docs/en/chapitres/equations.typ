@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 #import "../../guide-utils.typ": *
 

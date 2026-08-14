@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 
 #show: chapter-nonum
 
@@ -15,7 +15,7 @@ Ce guide d'utilisation du template `community-cnam-thesis` pour Typst a été co
   table.hline(),
   [Fonctionnalité], [Syntaxe], [Chapitre],
   table.hline(),
-  [Importation du gabarit], [`#import "@preview/community-cnam-thesis:0.1.0": *`], table.cell(rowspan: 2)[Chapitre @ch:usage-general],
+  [Importation du gabarit], [`#import "@preview/community-cnam-thesis:0.1.1": *`], table.cell(rowspan: 2)[Chapitre @ch:usage-general],
   [Initialisation du gabarit], [`#show: community-cnam-thesis.with(...)`],
   table.hline(),
   [Hiérarchisation des titres], [`= Chapitre`, `== Section`, `=== Sous-section`], table.cell(rowspan: 7)[Chapitre @ch:structure],

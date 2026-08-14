@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 // #import "@preview/mantys:1.0.2": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 

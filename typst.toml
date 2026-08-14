@@ -1,6 +1,6 @@
 [package]
 name = "community-cnam-thesis"
-version = "0.1.0"
+version = "0.1.1"
 entrypoint = "src/cnam-thesis.typ"
 authors = ["Mathieu Aucejo"]
 license = "MIT"

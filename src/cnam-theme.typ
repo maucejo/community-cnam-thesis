@@ -281,6 +281,7 @@
     set par(first-line-indent: 0em) if states.par-indent.get()
     if is-chapter-page() { return }
 
+    show metadata.where(label: <bookly-title>): it => it.value.short
     show linebreak: none
 
     let h1 = text(fill: colors.primary)[#smallcaps[*#hydra(1)*]]

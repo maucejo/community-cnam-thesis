@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 #import "../../guide-utils.typ": *
 #import "@preview/lilaq:0.6.0" as lq
 
@@ -161,20 +161,20 @@ Le Tableau @tab:perimetres présente les formules de calcul des périmètres de 
 
 == Titres longs et courts pour les figures et tableau
 
-Le template `community-cnam-thesis` permet de définir un titre long et un titre court pour les figures et les tableaux via la fonction #cmd("ls-caption"). Le titre long est utilisé dans la légende de la figure ou du tableau, tandis que le titre court est utilisé dans la liste des figures ou des tableaux.
+Le template `community-cnam-thesis` permet de définir un titre long et un titre court pour les figures et les tableaux via la fonction #cmd("short-or-long"). Si appliqué aux titres de chapitre ou de section, le titre long est utilisé dans le titre lui-même, tandis que le titre court est utilisé dans l'en-tête de page. Si utilisé pour les figures ou les tableaux, le titre long est utilisé dans la légende de la figure ou du tableau, tandis que le titre court est utilisé dans la liste des figures ou des tableaux.
 
 #v(1.5em)
 #example-box(numbering: false, vspace: -1.5em)[
 ```typst
 #figure(
     rect(),
-    caption: ls-caption[Ceci est une figure représentant un rectangle (voir la table des figures pour voir le titre court)][Représentation d'un rectangle],
+    caption: short-or-long[Représentation d'un rectangle][Ceci est une figure représentant un rectangle (voir la table des figures pour voir le titre court)]
   )
 ```
 ][
   #figure(
     rect(),
-    caption: ls-caption[Ceci est une figure représentant un rectangle (voir la table des figures pour voir le titre court)][Représentation d'un rectangle],
+    caption: short-or-long[Représentation d'un rectangle][Ceci est une figure représentant un rectangle (voir la table des figures pour voir le titre court)]
   )
 ]
 

@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 
 #show: chapter-nonum
@@ -171,7 +171,7 @@ Prenons l'exemple du paquet `community-cnam-thesis` qui est utilisé dans ce gui
 #code-box[
 ```typst
 // Importe toutes les fonctions et variables du paquet
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 
 // Importe le nom du paquet pour l'utiliser dans votre code
 // Par exemple, #ct.info-box[...] crée une boîte d'information

@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.0": *
+#import "@preview/community-cnam-thesis:0.1.1": *
 #import "../../guide-utils.typ": *
 #import "@preview/lilaq:0.6.0" as lq
 
@@ -157,22 +157,22 @@ Table @tab:perimetres presents the formulas used to calculate the perimeters of 
 
 #info-box[Careful readers will have noticed that, to avoid cluttering the code, we defined the table in a variable named #text(fill: cnam-colors.primary,`mon-tableau`) before inserting it into the #cmd("figure") environment. This makes it possible to reuse the same table in different parts of the document if necessary and makes the code more readable.]
 
-== Long and short captions for figures and tables
+== Long and short titles
 
-The `community-cnam-thesis` template lets you define a long caption and a short caption for figures and tables via the #cmd("ls-caption") function. The long caption is used in the figure or table caption, while the short caption is used in the list of figures or tables.
+The `community-cnam-thesis` template lets you define a long title and a short title for headings or for figures and tables via the #cmd("short-or-long") function. If applied to headings, the long title is used in the heading itself, while the short title is used in the header. If applied to figures or tables, the long title is used in the figure or table caption, while the short title is used in the list of figures or tables.
 
 #v(1.5em)
 #example-box(numbering: false,vspace: -1.5em)[
 ```typst
 #figure(
     rect(),
-    caption: ls-caption[This is a figure representing a rectangle (see the list of figures to view the short caption)][Representation of a rectangle],
+    caption: short-or-long[Representation of a rectangle][This is a figure representing a rectangle (see the list of figures to view the short caption)],
   )
 ```
 ][
   #figure(
     rect(),
-    caption: ls-caption[This is a figure representing a rectangle (see the list of figures to view the short caption)][Representation of a rectangle],
+    caption: short-or-long[Representation of a rectangle][This is a figure representing a rectangle (see the list of figures to view the short caption)],
   )
 ]
 
