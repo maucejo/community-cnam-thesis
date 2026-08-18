@@ -1,6 +1,6 @@
 # community-cnam-thesis
 
-[![Generic badge](https://img.shields.io/badge/Version-0.1.0-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/0.1.0)
+[![Generic badge](https://img.shields.io/badge/Version-0.1.1-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/0.1.1)
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/book_template/blob/main/LICENSE)
 [![User Manual](https://img.shields.io/badge/Manual-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/main/docs/en/guide-en.pdf)
 [![User Manual (FR)](https://img.shields.io/badge/Manual%20(FR)-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/main/docs/fr/guide-fr.pdf)
