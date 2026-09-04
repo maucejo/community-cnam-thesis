@@ -78,11 +78,10 @@ label: <fig:subfig>,
   #lorem(10)
 ]
 
+#pagebreak()
 #proof-box[
   #lorem(10)
 ]
-
-#pagebreak()
 
 #question-box[
   #lorem(10)
