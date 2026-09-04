@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 
 #show: chapter-nonum
 
@@ -15,7 +15,7 @@ This user guide for the `community-cnam-thesis` Typst template was written to he
   table.hline(),
   [Feature], [Syntax], [Chapter],
   table.hline(),
-  [Template import], [`#import "@preview/community-cnam-thesis:0.1.1": *`], table.cell(rowspan: 2)[Chapter @ch:usage-general],
+  [Template import], [`#import "@preview/community-cnam-thesis:0.1.2": *`], table.cell(rowspan: 2)[Chapter @ch:usage-general],
   [Template initialization], [`#show: community-cnam-thesis.with(...)`],
   table.hline(),
   [Heading hierarchy], [`= Chapter`, `== Section`, `=== Subsection`], table.cell(rowspan: 7)[Chapter @ch:structure],

@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 #import "../../guide-utils.typ": *
 
 = Document Formatting <ch:structure>
@@ -32,7 +32,7 @@ The `community-cnam-thesis` template supports different levels of titles.
 By default, chapters are numbered. If you want to create unnumbered chapters (abstract, acknowledgments, introduction, etc.), you can use the following command at the beginning of the corresponding file. For example, for the introduction chapter:
 
 #code-box[```typst
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 
 #show: chapter-nonum
 

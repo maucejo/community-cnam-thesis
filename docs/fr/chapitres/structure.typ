@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 #import "../../guide-utils.typ": *
 
 = Mise en forme du document <ch:structure>
@@ -32,7 +32,7 @@ Le template `community-cnam-thesis` supporte différents niveaux de titres.
 Par défaut, les chapitres sont numérotés. Si vous souhaitez créer des chapitres non numérotés (résumé, remerciements, introduction, etc.), vous pouvez utiliser la commande suivante en préambule du fichier correspondant. Par exemple, pour le chapitre d'introduction:
 
 #code-box[```typst
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 
 #show: chapter-nonum
 

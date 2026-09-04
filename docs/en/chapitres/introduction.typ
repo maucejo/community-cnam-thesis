@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 
 #show: chapter-nonum
@@ -129,7 +129,7 @@ Import packages with:
 For `community-cnam-thesis`:
 #code-box[
 ```typst
-#import "@preview/community-cnam-thesis:0.1.1": *
+#import "@preview/community-cnam-thesis:0.1.2": *
 #import "@preview/community-cnam-thesis:0.1.0": ct
 #import "@preview/community-cnam-thesis:0.1.0": info-box, warning-box
 ```
