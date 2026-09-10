@@ -1,6 +1,6 @@
 # community-cnam-thesis
 
-[![Generic badge](https://img.shields.io/badge/Version-0.1.2-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/0.1.2)
+[![Generic badge](https://img.shields.io/badge/Version-0.1.3-cornflowerblue.svg)](https://github.com/maucejo/bookly/releases/tag/0.1.3)
 [![MIT License](https://img.shields.io/badge/License-MIT-forestgreen)](https://github.com/maucejo/book_template/blob/main/LICENSE)
 [![User Manual](https://img.shields.io/badge/Manual-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/main/docs/en/guide-en.pdf)
 [![User Manual (FR)](https://img.shields.io/badge/Manual%20(FR)-.pdf-mediumpurple)](https://github.com/maucejo/community-cnam-thesis/blob/main/docs/fr/guide-fr.pdf)
@@ -20,7 +20,7 @@ A Typst package to write Cnam PhD theses with a ready-to-use structure, title pa
 Import from Typst Universe:
 
 ```typst
-#import "@preview/community-cnam-thesis:0.1.2": *
+#import "@preview/community-cnam-thesis:0.1.3": *
 ```
 
 ## Quick start
@@ -28,7 +28,7 @@ Import from Typst Universe:
 Minimal thesis document:
 
 ```typst
-#import "@preview/community-cnam-thesis:0.1.2": *
+#import "@preview/community-cnam-thesis:0.1.3": *
 
 #show: community-cnam-thesis.with(
 	title: "My Thesis Title",

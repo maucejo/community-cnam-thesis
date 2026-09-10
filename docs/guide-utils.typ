@@ -1,5 +1,5 @@
-#import "@preview/community-cnam-thesis:0.1.2": *
-#import "@preview/codly-languages:0.1.20": *
+#import "@preview/community-cnam-thesis:0.1.3": *
+#import "@preview/codly-languages:0.1.10": *
 
 #let default-type-color = rgb("#eff0f3")
 #let function-name-color = rgb("#4b69c6")
