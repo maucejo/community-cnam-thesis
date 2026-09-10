@@ -70,7 +70,7 @@ This is an important box.
 #v(1em)
 - #cmd-("proof-box"): Used to present proofs or mathematical demonstrations.
 
-#v(1em)
+#pagebreak()
 #example-box(numbering: false, vspace: -1em)[
 ```typ
 #proof-box[This is a proof box.]
@@ -165,7 +165,6 @@ You can add line numbering by using dedicated packages, such as `zebraw`:
   ```
 ]]
 
-#pagebreak()
 #info-box[The `zebraw` package is an explicit dependency of the `community-cnam-thesis` template. It can therefore be used directly without importing it explicitly.]
 
 To go further, you can consult the documentation for #link("https://github.com/hongjr03/typst-zebraw", [`zebraw`]). Note that other packages exist for code formatting, such as #link("https://github.com/Dherse/codly", [`codly`]) or #link("https://github.com/jneug/typst-codelst", [`codelst`]). However, these packages are not dependencies of the `community-cnam-thesis` template and must therefore be explicitly imported if you want to use them.

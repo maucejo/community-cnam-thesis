@@ -44,6 +44,7 @@ To use the template, you must import it into your main `typ` file. Assuming the 
 #import "@preview/community-cnam-thesis:0.1.3": *
 ```]
 
+#pagebreak()
 #info-box[If you split your document into multiple files, you must insert the previous command in the preamble of each file.]
 
 After importing the template, it must be initialized by applying a display rule (`show` rule) with the #cmd("community-cnam-thesis") command and passing the required options with the `with` instruction in your main `typ` file:
@@ -73,6 +74,7 @@ This initialization function contains a number of arguments detailed below. You 
   If `true`, chapters start on a right-hand page. If `false`, chapters start on the next page.
 ]
 
+#pagebreak()
 #argument("thesis-info", default: [thesis-info-default], type: mtype("dictionary"))[
   Dictionary containing thesis-related information.
 
@@ -169,6 +171,7 @@ To define the `supervisor`, `co-supervisor`, and `committee` dictionaries, sever
 ```
 ]
 
+#pagebreak()
 3. Definition in a separate `yaml` file.
 #code-box[
 ```yaml
@@ -219,6 +222,8 @@ main.typ
 == Structure of the main file
 
 Based on the structure defined in the previous section, the main `main.typ` file could look like this#footnote[The code below is the main file used to write this document.]:
+
+#pagebreak()
 #code-box[
 ```typ
 // main.typ

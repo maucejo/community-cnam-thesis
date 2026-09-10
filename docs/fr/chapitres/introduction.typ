@@ -64,7 +64,7 @@ L'installation de Typst-CLI#footnote[Utilitaire en ligne de commande] est simple
 
 - Windows : Plusieurs méthodes sont disponibles pour installer Typst sur Windows. Vous pouvez télécharger le binaire sur le dépôt GitHub de projet, ou utiliser un gestionnaire de paquets comme #link("https://chocolatey.org/", "Chocolatey"), #link("https://scoop.sh/", "Scoop") ou #link("https://winget.run/", "Winget"). Pour installer Typst avec ses gestionnaires de paquets, vous pouvez utiliser les commandes suivantes dans votre terminal :
 #import "@preview/conch:0.1.0": system, terminal
-
+#pagebreak()
 #code-box[
     ```bash
     choco install typst              # pour Chocolatey

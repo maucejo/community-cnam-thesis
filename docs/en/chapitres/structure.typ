@@ -52,8 +52,6 @@ By default, all titles at levels 1 to 4 are numbered. To insert unnumbered secti
 == Cross-References
 
 To create cross-references to sections, figures, tables, equations, etc., you must first define a label for the element you want to reference. This is done by adding the #mtype("label") #text(fill: cnam-colors.primary,`<my-label>`) at the end of the element in question:
-
-#pagebreak()
 #code-box[
 ```typst
 = Chapter title <ch:chapter>
@@ -211,7 +209,7 @@ To activate these environments, use the following commands at the desired locati
 == Back Cover
 
 The back cover is a page that presents the abstract and the English summary of the document. It is generally used to give readers an overview of the document's content.
-
+#pagebreak()
 #code-box[
 ```typst
 #backcover(resume: ..., abstract: ...)

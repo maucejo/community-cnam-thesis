@@ -63,11 +63,13 @@ Annotations can be added using the #cmd("comment") command, whose arguments are 
 #set text(size: 0.8em)
 #info-box[The #cmd("comment") command is built from the #cmd("note") command provided by the `marginalia` package for margin notes, while it uses the built-in #cmd("block") command for inline notes. Therefore, #cmd("comment") inherits the parameters of these two commands. For more information about available parameters, please refer to the #link("https://github.com/nleanba/typst-marginalia/blob/main/Marginalia.pdf", [`marginalia` package documentation.])]
 
+#colbreak()
 #warning-box[Due to the current implementation of the #cmd("comment") command, some parameters of the #cmd("inline-note") command are not yet supported. This is notably the case for the `par-break` parameter.]
 ]
 
 To add a margin comment of type `note` with a blue annotation box, use the following command:
 
+#v(-1em)
 #code-box[```typ
 #comment(by: "Abbé Grégoire", color: blue)[This is a blue comment.]
 ```]
@@ -75,7 +77,7 @@ To add a margin comment of type `note` with a blue annotation box, use the follo
 As you can see, the previous command does create a margin comment of type `note` with a blue annotation box.#comment(by: "Abbé Grégoire", color: blue, dy: -2em)[This is a blue comment.]. An attentive reader will notice that the inserted annotation is marked in the text by its icon, color, and number.
 
 You can go further by creating annotation boxes associated with a specific reviewer. This makes it possible to distinguish each reviewer’s comments with a specific color. For example, let’s create two reviewers, Abbé Grégoire and Henri Tresca (who are the advisors of this fictional thesis).
-
+#v(-1em)
 #code-box[
 ```typ
 #let ab-comment = comment.with(by: "Abbé Grégoire", color: blue)
@@ -87,6 +89,7 @@ You can go further by creating annotation boxes associated with a specific revie
 #let ht-comment = comment.with(by: "Henri Tresca", color: cnam-colors.primary)
 
 By doing this, you can add comments from each reviewer using the `ab-comment` and `ht-comment` commands#ht-comment(type: "comment", dy: -3.5em)[I think this is great!]#ab-comment(type: "question")[I am not sure I understand this remark, Henri?]. These notes were created with the following commands:
+#v(-1em)
 #code-box[
 ```typ
 By doing this, you can add comments from each reviewer using the `ab-comment` and `ht-comment` commands#ht-comment(type: "comment", dy: -3.5em)[I think this is great!]#ab-comment(type: "question")[I am not sure I understand this remark, Henri?].
@@ -97,7 +100,6 @@ Comments inserted in the margins should generally be relatively short so as not 
 
 It is also possible to highlight a passage of text and associate a comment with it. To do this, simply use the #cmd("highlight-comment") command, which highlights the text and adds an associated comment. The command is as follows:
 
-#pagebreak()
 #code-box[
 ```typ
 #highlight-comment(by: "Reviewer A", type: "comment", color: green, highlight-body: [Highlighted text])[Associated comment]

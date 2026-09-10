@@ -70,7 +70,7 @@ Ceci est une boîte importante.
 #v(1em)
 - #cmd-("proof-box") : Utilisée pour présenter des preuves ou des démonstrations mathématiques.
 
-#v(1em)
+#pagebreak()
 #example-box(numbering: false, vspace: -1em)[
 ```typ
 #proof-box[Ceci est une boîte de preuve.]

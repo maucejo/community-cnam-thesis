@@ -43,6 +43,7 @@ Pour utiliser le modèle, il faut l'importer dans votre fichier principal `typ`.
 #import "@preview/community-cnam-thesis:0.1.3": *
 ```]
 
+#pagebreak()
 #info-box[Si vous décomposez votre document en différents fichiers, il faut insérer la commande précédente en préambule de chaque fichier.]
 
 Après avoir importé le modèle, celui doit être initialisé en appliquant une règle d'affichage (`show` rule) avec la commande #cmd("community-cnam-thesis") en passant les options nécessaires avec l'instruction `with` dans votre fichier principal `typ` :
@@ -73,6 +74,7 @@ Cette fonction d'initialisation contient un certain nombre d'arguments qui sont 
   Si `true`, les chapitres s'ouvrent sur une page de droite. Si `false`, les chapitres s'ouvrent sur la page suivante.
 ]
 
+#pagebreak()
 #argument("thesis-info", default: [thesis-info-default], type: mtype("dictionary"))[
   Dictionnaire contenant les informations relatives à la thèse.
 
@@ -123,7 +125,6 @@ Cette fonction d'initialisation contient un certain nombre d'arguments qui sont 
 
 Pour définir les dictionnaires `supervisor`, `co-supervisor` et `committee`, plusieurs approches sont possibles :
 
-#pagebreak()
 + Définition directe en Typst.
 #code-box[
 ```typ
@@ -170,6 +171,7 @@ Pour définir les dictionnaires `supervisor`, `co-supervisor` et `committee`, pl
 ```
 ]
 
+#pagebreak()
 3. Définition dans un fichier `yaml` séparé.
 #code-box[
 ```yaml
@@ -220,6 +222,8 @@ main.typ
 == Structure du fichier principal
 
 À partir de la structure définie dans la section précédente, le fichier principal `main.typ` pourrait ressembler à ceci#footnote[Le code ci-dessous est le fichier principal utiliser pour rédiger le présent document.] :
+
+#pagebreak()
 #code-box[
 ```typ
 // main.typ

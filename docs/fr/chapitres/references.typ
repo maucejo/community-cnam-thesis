@@ -31,6 +31,7 @@ Pour insérer une bibliographie, il faut utiliser la commande #cmd("bibliography
 
 Pour plus d'informations sur la commande #cmd("bibliography"), veuillez consulter la #link("https://typst.app/docs/reference/model/bibliography/", "documentation officielle de Typst").
 
+#v(-1em)
 #tip-box[
   #link("https://www.zotero.org/", "Zotero") (avec le connecteur #link("https://retorque.re/zotero-better-bibtex/installation/", "Better BibTeX")) ou #link("https://www.jabref.org/", "JabRef") exportent directement votre bibliographie au format BibTeX. On peut noter que JabRef permet également d'exporter votre bibliographie au format Hayagriva.
 ]

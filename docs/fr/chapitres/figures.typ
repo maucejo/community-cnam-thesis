@@ -12,7 +12,9 @@ Ce chapitre présente les différentes commandes et environnements disponibles p
 == Figures
 
 
-La syntaxe de base pour insérer une image est la suivante#footnote[Pour plus d'informations sur la commande #cmd("image"), voir #link("https://typst.app/docs/reference/visualize/image/", "Documentation Typst")]: :
+La syntaxe de base pour insérer une image est la suivante#footnote[Pour plus d'informations sur la commande #cmd("image"), voir #link("https://typst.app/docs/reference/visualize/image/", "Documentation Typst")]:
+
+#v(-1em)
 #code-box[
 ```typst
 #image("chemin/vers/image.png", width: 10cm)
@@ -28,7 +30,7 @@ La syntaxe de base pour insérer une image est la suivante#footnote[Pour plus d'
 #info-box[Typst accepte un certain nombre de formats d'image. Les formats actuellement supportés sont les suivants : PNG, JPEG, GIF, SVG, PDF, WEBP et Raw Pixel Data.]
 
 Cependant, lors de la rédaction d'un texte scientifique, il est souvent nécessaire d'ajouter une légende à l'image et de la référencer dans le texte. Pour cela, il est recommandé d'utiliser l'environnement #cmd("figure") de Typst. La syntaxe est la suivante#footnote[Pour plus d'informations sur l'environnement #cmd("figure"), voir #link("https://typst.app/docs/reference/model/figure/", "Documentation Typst")]:
-
+#v(-1em)
 #code-box[
 ```typst
 #figure(
@@ -185,7 +187,7 @@ Typst étant un langage Turing complet, il est possible de créer des courbes di
 L'exemple ci-dessous montre comment créer une figure avec deux courbes représentant la réponse libre d'un système mécanique à un degré de liberté non amorti et sous-amorti. Pour plus d'informations sur le package `lilaq`, voir la #link("https://lilaq.org/", "Documentation de lilaq").
 
 #v(1em)
-#example-box(ncol: 1, numbering: false, row-gutter: 7em)[
+#example-box(ncol: 1, numbering: false, row-gutter: 1em)[
 ```typ
 #import "@preview/lilaq:0.6.0" as lq
 

@@ -69,7 +69,7 @@ Les annotations peuvent être ajoutées en utilisant la commande #cmd("comment")
 
 Ainsi, pour ajouter un commentaire de type `note` en marge dont la couleur de la boîte est bleue, il suffit d'utiliser la commande suivante :
 
-#pagebreak()
+
 #code-box[```typ
 #comment(by: "Abbé Grégoire", color: blue)[Ceci est un commentaire bleu.]
 ```]
@@ -99,7 +99,6 @@ Les commentaires insérés dans les marges doivent généralement être relative
 
 Il est également possible de surligner un passage du texte et d'y associer un commentaire. Pour ce faire, il suffit d'utiliser la commande #cmd("highlight-comment") qui permet de surligner le texte et d'ajouter un commentaire associé. La commande est la suivante :
 
-#pagebreak()
 #code-box[
 ```typ
 #highlight-comment(by: "Relecteur A", type: "comment", color: green, highlight-body: [Texte surligné])[Commentaire associé]

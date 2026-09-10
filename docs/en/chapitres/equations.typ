@@ -12,7 +12,6 @@ This chapter presents the different ways to write equations and insert algorithm
 
 #warning-box[
 #set par(first-line-indent: 0pt)
-La syntaxe des équations Typst diffère de celle de #LaTeX. Pour plus d'informations sur la syntaxe des équations Typst, veuillez consulter la #link("https://typst.app/docs/reference/math/", "documentation officielle de Typst").
 Typst equation syntax differs from #LaTeX syntax. For more information about Typst equation syntax, please refer to the #link("https://typst.app/docs/reference/math/", "official Typst documentation").
 
 To access the full list of mathematical symbols available in Typst, click #link("https://typst.app/docs/reference/symbols/sym/", "here"). \
@@ -155,6 +154,7 @@ $
 $
 ]
 
+#v(-1em)
 == Algorithms
 
 Algorithms can be inserted into the thesis document using the #cmd("algorithm") command, which is based on the package #link("https://github.com/andreasKroepelin/lovelace", [`lovelace`]). This command accepts the following parameters:
@@ -169,7 +169,6 @@ Algorithms can be inserted into the thesis document using the #cmd("algorithm") 
   If #mtype("none"), no line numbering is displayed.
 ]
 
-#pagebreak()
 #example-box(numbering: false)[
 ```typ
 #algorithm(caption: [My algorithm])[
@@ -188,7 +187,9 @@ Algorithms can be inserted into the thesis document using the #cmd("algorithm") 
 #noindent Algorithm @alg:example is an example of a simple, completely useless algorithm.
 ]
 ```
-][#algorithm(caption: "My algorithm")[
+][
+  #set text(size: 0.8em)
+  #algorithm(caption: "My algorithm")[
   + do something
   + *while* still something to do
     + do even more

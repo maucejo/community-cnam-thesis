@@ -24,6 +24,7 @@ The basic syntax for inserting an image is as follows#footnote[For more informat
   ```
 ][#image("../../images/cnam.png")]
 
+#v(-1em)
 #info-box[Typst supports a number of image formats. The currently supported formats are: PNG, JPEG, GIF, SVG, PDF, WEBP, and Raw Pixel Data.]
 
 However, when writing a scientific text, it is often necessary to add a caption to the image and reference it in the text. For this, it is recommended to use Typst's #cmd("figure") environment. The syntax is as follows#footnote[For more information about the #cmd("figure") environment, see the #link("https://typst.app/docs/reference/model/figure/", "Typst documentation")]:
@@ -91,6 +92,8 @@ Figure @fig:subfig shows the official Cnam logo and the allegory of Winged Victo
 == Tables
 
 Tables can be inserted into the document using Typst's #cmd("table") environment. The syntax is as follows#footnote[For more information about the #cmd("table") environment, see the #link("https://typst.app/docs/reference/model/table/", "Typst documentation")]:
+
+#pagebreak()
 #code-box[
 ```typst
 #table(
@@ -183,7 +186,7 @@ Since Typst is a Turing-complete language, it is possible to create plots direct
 The example below shows how to create a figure with two plots representing the free response of a one-degree-of-freedom mechanical system in the undamped and underdamped cases. For more information about the `lilaq` package, see the #link("https://lilaq.org/", "lilaq documentation").
 
 #v(1em)
-#example-box(ncol: 1, numbering: false, row-gutter: 11em)[
+#example-box(ncol: 1, numbering: false, row-gutter: 1em)[
 ```typ
 #import "@preview/lilaq:0.6.0" as lq
 

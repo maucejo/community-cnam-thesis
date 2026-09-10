@@ -105,7 +105,7 @@ $ <equate:revoke>
 
 On peut également écrire les équations sous la forme d'un système d'équations, en procédant comme suit :
 
-#v(0.5em)
+#pagebreak()
 #example(numbering: false,
 ```typ
 $
