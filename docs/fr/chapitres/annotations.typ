@@ -74,7 +74,7 @@ Ainsi, pour ajouter un commentaire de type `note` en marge dont la couleur de la
 #comment(by: "Abbé Grégoire", color: blue)[Ceci est un commentaire bleu.]
 ```]
 
-Comme vous pouvez le constater la commande précédente crée bien un commentaire de type `note` en marge dont la couleur de la boîte est bleue.#comment(by: "Abbé Grégoire", color: blue, dy: -3.25em)[Ceci est un commentaire bleu.]. Le lecteur attentif aura remarqué que l'annotation insérée est signalée dans le texte par son icône, sa couleur et son numéro.
+Comme vous pouvez le constater la commande précédente crée bien un commentaire de type `note` en marge dont la couleur de la boîte est bleue.#comment(by: "Abbé Grégoire", color: blue, dy: -2em)[Ceci est un commentaire bleu.]. Le lecteur attentif aura remarqué que l'annotation insérée est signalée dans le texte par son icône, sa couleur et son numéro.
 
 On peut aller plus loin en créant des boîtes d'annotation associées à un relecteur spécifique. Cela permet de différencier les commentaires de chaque relecteur par une couleur spécifique. Par exemple, créons deux relecteurs, l'Abbé Grégoire et Henri Tresca (qui sont les directeurs de cette thèse fictive).
 

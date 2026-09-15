@@ -108,7 +108,7 @@ It is also possible to highlight a passage of text and associate a comment with 
 
 #let ma-highlight-comment = highlight-comment.with(by: "Mathieu Aucejo", color: green.darken(25%))
 
-In the next section, #ma-highlight-comment(type: "question", dy: - 3.5em)[we will present how to create the annotation list.][I wonder whether this is really necessary?]
+In the next section, #ma-highlight-comment(type: "question", dy: - 2em)[we will present how to create the annotation list.][I wonder whether this is really necessary?]
 
 #info-box[The #cmd("highlight-comment") command is built from the #cmd("comment") command. It inherits this command’s parameters except for the `inline` parameter.]
 
