@@ -24,7 +24,6 @@
   image("images/cnam.png", height: 5%)
 )
 
-
 #show: community-cnam-thesis.with(
     title: "Titre de la thèse",
     author: "Nom de l'auteur",
