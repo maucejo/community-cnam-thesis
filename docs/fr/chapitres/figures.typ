@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.3": *
+#import "@local/community-cnam-thesis:0.1.4": *
 #import "../../guide-utils.typ": *
 #import "@preview/lilaq:0.6.0" as lq
 

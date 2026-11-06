@@ -1,4 +1,4 @@
-#import "@preview/community-cnam-thesis:0.1.3": *
+#import "@local/community-cnam-thesis:0.1.4": *
 #import "@preview/swank-tex:0.1.0": LaTeX
 
 #show: chapter-nonum
