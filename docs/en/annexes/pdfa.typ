@@ -1,4 +1,4 @@
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 
 = PDF/A-1b validation
 

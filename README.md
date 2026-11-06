@@ -20,7 +20,7 @@ A Typst package to write Cnam PhD theses with a ready-to-use structure, title pa
 Import from Typst Universe:
 
 ```typst
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 ```
 
 ## Quick start
@@ -28,7 +28,7 @@ Import from Typst Universe:
 Minimal thesis document:
 
 ```typst
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 
 #show: community-cnam-thesis.with(
 	title: "My Thesis Title",

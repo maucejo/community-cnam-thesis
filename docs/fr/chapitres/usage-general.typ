@@ -1,4 +1,4 @@
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 #import "@preview/dtree:0.1.1": dtree
 #import "../../guide-utils.typ": *
 
@@ -40,7 +40,7 @@ Le gabarit `community-cnam-thesis` définit deux couleurs principales pour assur
 Pour utiliser le modèle, il faut l'importer dans votre fichier principal `typ`. En supposant que le template et le fichier principal sont dans le même dossier, il suffit d'insérer la commande suivante à la première ligne du fichier principal.
 
 #code-box[```typ
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 ```]
 
 #pagebreak()
@@ -227,7 +227,7 @@ main.typ
 #code-box[
 ```typ
 // main.typ
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 
 #let supervisor = ...
 #let co-supervisor = ...

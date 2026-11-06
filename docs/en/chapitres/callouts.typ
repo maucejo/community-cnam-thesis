@@ -1,4 +1,4 @@
-#import "@local/community-cnam-thesis:0.1.4": *
+#import "@local/community-cnam-thesis:0.1.2": *
 #import "../../guide-utils.typ": *
 
 = Callout boxes <ch:boxes>
